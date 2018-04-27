@@ -252,6 +252,15 @@
 
                 </LinearLayout>
 
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+
+                    android:id="@+id/detail_map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_below="@+id/tv_offline_mode" />
 
             </LinearLayout>
 

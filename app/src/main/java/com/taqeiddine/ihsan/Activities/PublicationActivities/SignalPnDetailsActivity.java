@@ -26,6 +26,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.taqeiddine.ihsan.Adapters.DonAdapter;
 import com.taqeiddine.ihsan.Adapters.InstaAdapter;
 import com.taqeiddine.ihsan.Adapters.StableArrayAdapter;
@@ -62,11 +68,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class SignalPnDetailsActivity extends AppCompatActivity {
+public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
     //private MapView mapView;
     private TextView publicateur, date, heure, titre, descri, type, numphone, adresse;
     private ImageView photoPublicateur,plus;
     private RecyclerView besoins,images;
+    SupportMapFragment mapFragment;
 
 
     private RelativeLayout intervenir;
@@ -98,6 +105,8 @@ public class SignalPnDetailsActivity extends AppCompatActivity {
         plus=(ImageView) findViewById(R.id.detailspn_plus);
         images=(RecyclerView) findViewById(R.id.detailspn_recy_photos);
         adresse=(TextView) findViewById(R.id.detailspn_localisation);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.detail_map);
 
         intervenir=(RelativeLayout) findViewById(R.id.detailspn_intervenir);
         intervenir.setClickable(false);
@@ -151,6 +160,8 @@ public class SignalPnDetailsActivity extends AppCompatActivity {
                         descri.setText(signalPN.getDescriptionpub());
                         type.setText(signalPN.getTypePN());
                         numphone.setText(signalPN.getNumphone());
+
+                        mapFragment.getMapAsync(SignalPnDetailsActivity.this);
 
                         Geocoder geocoder;
                         List<Address> addresses;
@@ -449,5 +460,15 @@ public class SignalPnDetailsActivity extends AppCompatActivity {
                  */
             }
         });
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        GoogleMap mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

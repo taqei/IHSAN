@@ -86,7 +86,7 @@ public class UtilisateurMyActivity extends AppCompatActivity {
         nbrfollowers=(TextView) findViewById(R.id.myprofileNumberFollowers);
         nbrpub=(TextView) findViewById(R.id.myprofileNumberPub);
         nivconfiance=(TextView) findViewById(R.id.myprofileNivConfiance);
-        buttonOne=(Button) findViewById(R.id.myprofileBtnOne);
+        //buttonOne=(Button) findViewById(R.id.myprofileBtnOne);
         photodeprofile=(CircleImageView) findViewById(R.id.my_profile_image);
         changePhoto=(ImageView) findViewById(R.id.my_profile_changeImage);
         changePhoto.setOnClickListener(new View.OnClickListener() {
