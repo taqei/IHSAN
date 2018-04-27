@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/pink50"
+
+    >
+
+    <ListView
+        android:id="@+id/dialogue_demande_adr_listview"
+        android:layout_width="300dp"
+        android:layout_height="360dp"
+        android:background="@color/pink50"
+        >
+
+    </ListView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/pink700"
+        android:text="Aucune Demande"
+        android:layout_margin="25dp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:id="@+id/dialogue_demande_adr_no"
+        />
+
+
+
+</RelativeLayout>

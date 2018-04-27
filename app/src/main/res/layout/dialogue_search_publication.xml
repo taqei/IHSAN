@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:orientation="vertical">
+    <android.widget.SearchView
+        android:id="@+id/dialogue_search_publication"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        >
+
+        <requestFocus />
+    </android.widget.SearchView>
+
+    <ListView
+        android:id="@+id/dialogue_search_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+</LinearLayout>

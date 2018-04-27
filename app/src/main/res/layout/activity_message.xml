@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.taqeiddine.ihsan.Activities.Messages.MessageActivity">
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/pink50"
+            android:layout_alignParentStart="true"
+            android:id="@+id/message_top"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:gravity="center">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/message_photoprofil"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_logo"
+                    app:civ_border_width="0.5dp"
+                    app:civ_border_color="@color/pink100"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="TAKI EDDINE TOUFIK"
+                    android:textAllCaps="false"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/pink700"
+                    android:id="@+id/message_nomprenom"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:background="@color/pink50"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/message_end"
+            android:weightSum="14"
+            >
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/messagenew"
+                android:layout_margin="7dp"
+                android:padding="5dp"
+                android:inputType="textMultiLine"
+                android:hint="Votre Message"
+                android:textColorHint="@color/pink400"
+                android:textSize="13sp"
+                android:id="@+id/message_message"
+                android:layout_alignLeft="@+id/message_send"
+                android:layout_weight="13"
+                android:textColor="@color/pink"
+                android:maxLength="200"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/message_send"
+                android:src="@drawable/ic_send_message"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"/>
+
+
+
+
+        </LinearLayout>
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/message_top"
+            android:layout_above="@+id/message_end"
+            android:background="@color/white"
+            android:id="@+id/message_scroll"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+                <ProgressBar
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/message_progress"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/profile_my_linear_lay"
+                    />
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/message_recy">
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

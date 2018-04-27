@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.taqeiddine.ihsan.Activities.PublicationActivities.SignalerPNActiviy">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:background="@color/pink50"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ajouter un evenement de collecte"
+                android:textColor="#FFF"
+                android:textSize="20dp"
+                android:background="@drawable/gradientpink"
+                android:layout_marginBottom="20dp"/>
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/publierTitre"
+                android:hint="titre de votre publication "
+                android:textColorHint="@color/pink"
+                android:textColor="@color/pink"
+                android:layout_marginBottom="10dp"/>
+
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:textColorHint="@color/pink"
+                android:textColor="@color/pink"
+
+                android:id="@+id/publierDescr"
+                android:layout_marginBottom="10dp"/>
+
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Num Phone"
+                android:textColorHint="@color/pink"
+                android:textColor="@color/pink"
+                android:id="@+id/publierPhone"
+                android:layout_marginBottom="10dp"
+                />
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lieu de collecte"
+                android:textColorHint="@color/pink"
+                android:textColor="@color/pink"
+
+                android:id="@+id/publierCollecteLieu"
+                android:layout_marginBottom="10dp"/>
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Destination"
+                android:textColorHint="@color/pink"
+                android:textColor="@color/pink"
+
+                android:id="@+id/publierDestination"
+                android:layout_marginBottom="10dp"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyvler_add_besoins"
+                android:layout_marginBottom="10dp"
+                >
+            </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyvler_add_photo"
+                android:layout_marginBottom="10dp"
+                >
+            </android.support.v7.widget.RecyclerView>
+
+            <!-- Date debut collecte / date fin -->
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Localisation"
+                android:textColorHint="@color/pink"
+                android:textColor="@color/pink"
+
+                android:id="@+id/publierLocalisation"
+                android:layout_marginBottom="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/publierDateDebutCollecte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="date"
+                    android:textColorHint="@color/pink"
+                    android:hint="Debut de Collecte"
+                    android:textColor="@color/pink"
+                    android:layout_marginRight="30dp"/>
+                <EditText
+                    android:id="@+id/publierDateFinCollecte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Fin de Collecte"
+                    android:inputType="date"
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/publierHeureOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="time"
+                    android:textColorHint="@color/pink"
+                    android:hint="Open"
+                    android:textColor="@color/pink"
+                    android:layout_marginRight="30dp"/>
+                <EditText
+                    android:id="@+id/publierHeureClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Close"
+                    android:inputType="time"
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"/>
+            </LinearLayout>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publier"
+                android:onClick="publier"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

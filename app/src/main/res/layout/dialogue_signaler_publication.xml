@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:minHeight="150dp"
+    android:maxHeight="250dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp">
+    <AutoCompleteTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Pourquoi vous vouez signaler cette publication ?"
+        android:id="@+id/dialogue_signaler_text"
+        android:maxLength="500"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        android:background="@drawable/registerbtne"
+        android:id="@+id/dialogue_signaler_valider"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

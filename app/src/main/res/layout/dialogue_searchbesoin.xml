@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <android.widget.SearchView
+        android:id="@+id/dialogue_search_article"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        >
+
+        <requestFocus />
+    </android.widget.SearchView>
+
+    <ListView
+        android:id="@+id/dialogue_search_listview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter Un Article"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:id="@+id/dialogue_search_addarticle"
+        />
+</LinearLayout>

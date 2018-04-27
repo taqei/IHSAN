@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:gravity="center_vertical">
+    <LinearLayout
+        android:paddingLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/pink50"
+            android:id="@+id/row_interventiondetail_photodeprofil"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp">
+            <CheckedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="takiiiiiiiii"
+                android:textColor="@color/pink700"
+                android:textStyle="bold"
+                android:id="@+id/row_interventiondetail_nom"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="hhfhfhfhfjfjfngnvjv"
+                android:id="@+id/row_interventiondetail_date"/>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical">
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valider "
+            android:layout_alignParentRight="true"
+            android:textColor="@color/pink400"
+            android:gravity="center_vertical"
+            android:id="@+id/row_interventiondetail_switch"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@color/pink400"
+            android:layout_alignParentRight="true"
+            android:id="@+id/row_interventiondetail_delete"/>
+    </RelativeLayout>
+
+</RelativeLayout>-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="25dp">
+        <TextView
+            android:id="@+id/row_interventiondetail_nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="taqei iddine"
+            android:textColor="@color/pink700"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="date"
+            android:id="@+id/row_interventiondetail_date"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="date"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:textColor="@color/pink400"
+        android:id="@+id/row_interventiondetail_etat"/>
+
+
+</RelativeLayout>

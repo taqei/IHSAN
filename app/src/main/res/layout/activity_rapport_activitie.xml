@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.RapportActivities.RapportActivitieActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:background="@color/pink50"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter un Rapport d'activitie"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:background="@drawable/gradientpink"
+            android:layout_marginBottom="20dp"/>
+
+        <MultiAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activitie_act_titre"
+            android:hint="titre de votre activitie"
+            android:textColorHint="@color/pink"
+            android:textColor="@color/pink"
+            android:layout_marginBottom="10dp"/>
+        <MultiAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activitie_act_text"
+            android:hint="Description"
+            android:textColorHint="@color/pink"
+            android:textColor="@color/pink"
+            android:layout_marginBottom="10dp"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/activitie_act_recy_photo"
+            android:layout_marginBottom="10dp"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+        <MultiAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activitie_act_publication"
+            android:hint="Id Publication"
+            android:textColorHint="@color/pink"
+            android:textColor="@color/pink"
+            android:layout_marginBottom="10dp"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Publier"
+            android:id="@+id/activitie_act_publier"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="70dp"
+    android:layout_width="wrap_content"
+    android:minWidth="65dp"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="2dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="2dp"
+            android:src="@color/pink700"
+            android:id="@+id/circle_profile_view_image"/>
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="Taqei Iddine Toufik"
+            android:textStyle="bold"
+            android:textSize="8sp"
+            android:id="@+id/circle_profile_view_nom"
+            android:textColor="@color/pink400"
+            android:layout_marginTop="3dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

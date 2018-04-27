@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.taqeiddine.ihsan.Authentification.Authentification"
+    >
+     <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:src="@drawable/appbackground"
+       android:scaleType="centerCrop"
+       android:id="@+id/registerbackground"
+       />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/registerlogo"
+        android:src="@drawable/ic_logo"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="80dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/transwhiterect"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/registerlogo"
+        android:id="@+id/authentilayout">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="e-mail"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/roundedwhite"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableLeft="@drawable/ic_user_picture"
+            android:textSize="14sp"
+            android:drawablePadding="5dp"
+            android:paddingStart="10dp"
+            android:id="@+id/userMailAuth"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp">
+            <requestFocus />
+        </AutoCompleteTextView>
+
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="mot de passe"
+            android:background="@drawable/roundedwhite"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableLeft="@drawable/ic_password"
+            android:textSize="14sp"
+            android:drawablePadding="5dp"
+            android:paddingStart="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/userPasswordAuth"
+            android:layout_marginBottom="2dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="Mot de passe oublié ?"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            android:textStyle="normal"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="Connexion"
+            android:textStyle="normal"
+            android:background="@drawable/registerbtne"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:onClick="Connexion"
+            />
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/authentilayout"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:text="Inscrivez vous "
+        android:textStyle="normal"
+        android:background="@drawable/registerbtne"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="35dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:onClick="InscrivezVous"
+        />
+
+</RelativeLayout>

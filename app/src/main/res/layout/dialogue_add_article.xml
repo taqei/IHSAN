@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/pink50"
+        android:padding="10dp"
+        android:gravity="center">
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Article"
+            android:textColor="@color/pink400"
+            android:textColorHint="@color/pink400"
+            android:id="@+id/dialogue_add_article_nom"/>
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Unité article"
+            android:textColor="@color/pink400"
+            android:textColorHint="@color/pink400"
+            android:id="@+id/dialogue_add_article_unite"/>
+
+            <GridView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:columnWidth="50dp"
+                android:numColumns="3"
+                android:stretchMode="spacingWidthUniform"
+                android:id="@+id/dialogue_add_article_gridview"
+                ></GridView>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/dialogue_add_article_iconarticle"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/dialogue_add_article_iconarticle_id"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/registerbtne"
+            android:text="Ajouter"
+            android:textAllCaps="false"
+            android:id="@+id/dialogue_add_article_add"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

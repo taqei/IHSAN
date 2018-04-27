@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:id="@+id/messages_relativelayout"
+    android:clickable="true"
+    android:padding="10dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+
+        android:layout_marginLeft="20dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/messages_photoprofil"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Taqei Iddine Toufik"
+                android:textColor="@color/pink700"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/messages_nomprenom"
+                android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,325 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_profil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll_other_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pink50"
+        android:overScrollMode="never">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/profile_other_linear_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:background="@drawable/gradientpink"
+                            android:orientation="vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/other_profile_image"
+                                android:layout_width="96dp"
+                                android:layout_height="96dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/ic_logo"
+                                app:civ_border_color="#50FFFFFF"
+                                app:civ_border_width="2dp" />
+
+                            <TextView
+                                android:id="@+id/profileotherName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:text="Taqei Iddine"
+                                android:textSize="21sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="250dp"
+                            android:layout_height="60dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="170dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/pink50"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Followers"
+                                        android:textColor="@color/pink200"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+
+
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/profileotherNumberFollowers"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="50"
+                                        android:textColor="@color/pink"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Publications"
+                                        android:textColor="@color/pink200"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/profileotherNumberPub"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="50"
+                                        android:textColor="@color/pink"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Confiance"
+                                        android:textColor="@color/pink200"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/profileotherNivConfiance"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="50"
+                                        android:textColor="@color/pink"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/profileotherBtnOne"
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:background="@drawable/registerbtne"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:text="S'abonner"
+                                android:textAllCaps="false"
+                                android:textSize="10sp"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/profileotherBtnOneO"
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:background="@drawable/registerbtne"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:text="Se Désabonner"
+                                android:textAllCaps="false"
+                                android:textSize="10sp"
+                                android:visibility="gone" />
+
+                            <ProgressBar
+                                android:id="@+id/profile_other_progress_follow"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:visibility="visible" />
+                        </RelativeLayout>
+
+                        <Button
+                            android:id="@+id/profileBtnTwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/registerbtne"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:text="Envoyer un message"
+                            android:textAllCaps="false"
+                            android:textSize="9sp"
+                            />
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="4dp"
+                            android:gravity="center"
+                            android:background="#19D81B60">
+                            <RatingBar
+                                android:layout_marginTop="7dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:foregroundGravity="center"
+                                android:id="@+id/rating_bar_confiance"
+                                style="@style/Widget.AppCompat.RatingBar.Indicator"/>
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Niveau de Confiance"
+                            android:textStyle="bold"
+                            android:textColor="@color/pink700"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="350dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:id="@+id/utilisateur_adr_list_relative"
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="4dp"
+                            android:gravity="center"
+                            android:background="#19D81B60">
+                            <RatingBar
+                                android:layout_marginTop="7dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:foregroundGravity="center"
+                                android:id="@+id/rating_bar_confiance"
+                                style="@style/Widget.AppCompat.RatingBar.Indicator"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="4dp"
+                            android:background="#19D81B60"></RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Association Adhérés"
+                            android:textStyle="bold"
+                            android:textColor="@color/pink700"/>
+                        <ProgressBar
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/utilisateur_adr_list_progress"/>
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="71dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/utilisateur_adr_list_recy"
+                            ></android.support.v7.widget.RecyclerView>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recy_pub_other_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"></android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/profile_other_progress"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/profile_other_linear_lay"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>
