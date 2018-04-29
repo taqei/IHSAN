@@ -69,9 +69,7 @@ public class UtilisateurActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profileother);
         nameandlastname =(TextView) findViewById(R.id.profileotherName);
-        nbrfollowers=(TextView) findViewById(R.id.profileotherNumberFollowers);
-        nbrpub=(TextView) findViewById(R.id.profileotherNumberPub);
-        nivconfiance=(TextView) findViewById(R.id.profileotherNivConfiance);
+
         follow=(Button) findViewById(R.id.profileotherBtnOne);
         disfollow=(Button) findViewById(R.id.profileotherBtnOneO);
         messages=(Button) findViewById(R.id.profileBtnTwo);

@@ -59,6 +59,7 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MyUtilisateur extends Fragment {
