@@ -100,6 +100,9 @@ public class Utilisateur extends Profile  {
                     utilisateur.setPhone(jsonObject.getString("numphoneutilisateur"));
                     utilisateur.setEmail(jsonObject.getString("emailutilisateur"));
                     utilisateur.setConfiance(jsonObject.getInt("confiance"));
+                    utilisateur.setNbfollowee(jsonObject.getInt("nbfollowee"));
+                    utilisateur.setNbfollowers(jsonObject.getInt("nbfollowers"));
+                    utilisateur.setNbpublications(jsonObject.getInt("nbpubs"));
                     if (jsonObject.getString("url")!=null){
                         Photo photo=new Photo();
                         photo.setUrl(jsonObject.getString("url").toString());
@@ -127,6 +130,7 @@ public class Utilisateur extends Profile  {
             utilisateur.setPhotodeprofil(new Photo(jsonObject.getString("urlphoto")));
             utilisateur.setNom(jsonObject.getString("nomutilisateur"));
             utilisateur.setPrenom(jsonObject.getString("prenomutilisateur"));
+            utilisateur.setConfiance(jsonObject.getInt("confiance"));
             return utilisateur;
         }catch (JSONException e){
             return null;

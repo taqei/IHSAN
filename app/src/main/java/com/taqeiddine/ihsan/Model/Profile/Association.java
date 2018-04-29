@@ -72,6 +72,8 @@ public class Association extends Profile {
             Association association=new Association();
             association.setIdprofile(jsonObject.getString("idprofile"));
             association.setNomassociation(jsonObject.getString("nomassociation"));
+            association.setNbfollowers(jsonObject.getInt("nbfollowers"));
+            association.setNbpublications(jsonObject.getInt("nbpubs"));
             association.setPhone(jsonObject.getString("numphoneassociation"));
             try {
                 double lat=jsonObject.getDouble("latadresse"),lng=jsonObject.getDouble("lngadresse");

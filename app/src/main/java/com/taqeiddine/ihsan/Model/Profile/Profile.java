@@ -17,7 +17,7 @@ import java.util.BitSet;
 public class Profile {
     private String idprofile;
     private Photo photodeprofil;
-
+    private int nbfollowers=0,nbfollowee=0,nbpublications=0;
 
     public Profile() {
 
@@ -82,5 +82,29 @@ public class Profile {
             return null;
         }
         return null;
+    }
+
+    public int getNbfollowers() {
+        return nbfollowers;
+    }
+
+    public void setNbfollowers(int nbfollowers) {
+        this.nbfollowers = nbfollowers;
+    }
+
+    public int getNbfollowee() {
+        return nbfollowee;
+    }
+
+    public void setNbfollowee(int nbfollowee) {
+        this.nbfollowee = nbfollowee;
+    }
+
+    public int getNbpublications() {
+        return nbpublications;
+    }
+
+    public void setNbpublications(int nbpublications) {
+        this.nbpublications = nbpublications;
     }
 }
