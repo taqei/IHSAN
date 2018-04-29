@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.icu.lang.UCharacterEnums;
 import android.net.Uri;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
@@ -57,7 +58,7 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UtilisateurMyActivity extends AppCompatActivity {
-    private TextView nameandlastname,nbrfollowers,nbrpub,nivconfiance;
+    private TextView nameandlastname;
     private Button buttonOne,buttonTwo;
     private CircleImageView photodeprofile;
     private ImageView changePhoto;
@@ -114,6 +115,9 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                         final Utilisateur utilisateur=(Utilisateur) Profile.fromJsonINFOPROFILE(jsonObject);
                         nameandlastname.setText(utilisateur.getNom()+"  "+utilisateur.getPrenom());
                         initRatingBar(utilisateur.getConfiance());
+
+                        initNBRS(utilisateur.getNbfollowers(),utilisateur.getNbfollowee(),utilisateur.getNbpublications());
+
                         if (utilisateur.getPhotodeprofil()!=null){
                             Glide.with(UtilisateurMyActivity.this).load(Help.getMedia()+utilisateur.getPhotodeprofil().getUrl()).into(photodeprofile);
                         }
@@ -290,6 +294,15 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                 ratingBar.setRating(confiance/20);
         }
 
+    }
+
+    private void initNBRS(int nbfollowers,int nbfollowee,int nbpubs){
+        TextView fs=(TextView) findViewById(R.id.myprofileNumberFollowers);
+        TextView fe=(TextView) findViewById(R.id.myprofilNumberFollowee);
+        TextView pubs=(TextView) findViewById(R.id.myprofileNumberPub);
+        fs.setText(nbfollowers);
+        fe.setText(nbfollowee);
+        pubs.setText(nbpubs);
     }
 
     private void initListeDesAderents() {
