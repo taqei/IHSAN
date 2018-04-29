@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -143,6 +144,16 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
                 if (u instanceof Utilisateur == true) {
                     Utilisateur ut = (Utilisateur) u;
                     holder.nomprenom.setText(ut.getNom() + " " + ut.getPrenom());
+                    holder.ratingBar.setVisibility(View.VISIBLE);
+                    if(ut.getConfiance()<0)
+                        holder.ratingBar.setRating(0);
+                    else{
+                        if (ut.getConfiance()>100)
+                            holder.ratingBar.setRating(5);
+                        else
+                            holder.ratingBar.setRating(ut.getConfiance()/20);
+                    }
+
                 }
                 if (u instanceof Association==true){
                     Association a=(Association) u;
@@ -523,7 +534,7 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
     public class SPNHolder extends PublicationHolder{
         TextView type;
         Button afficherdétail;
-
+        RatingBar ratingBar;
 
         public SPNHolder(final View itemView) {
             super(itemView);
@@ -531,7 +542,7 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
             type = (TextView) itemView.findViewById(R.id.pub_prenec_type);
             afficherdétail = (Button) itemView.findViewById(R.id.pub_prenec_afficher_detail);
 
-
+            ratingBar=(RatingBar) itemView.findViewById(R.id.rating_bar_confiance);
 
 
         }
@@ -552,6 +563,7 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
             destii=(TextView) itemView.findViewById(R.id.detail_adresseDesti);
         }
     }
+
 
 
 
