@@ -260,21 +260,7 @@
                         android:layout_margin="10dp"
                         android:id="@+id/utilisateur_adr_list_relative"
                         >
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="4dp"
-                            android:gravity="center"
-                            android:background="#19D81B60">
-                            <RatingBar
-                                android:layout_marginTop="7dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:foregroundGravity="center"
-                                android:id="@+id/rating_bar_confiance"
-                                style="@style/Widget.AppCompat.RatingBar.Indicator"/>
-                        </RelativeLayout>
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

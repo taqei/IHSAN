@@ -11,10 +11,11 @@
         android:layout_height="wrap_content"
         >
         <RelativeLayout
-            android:background="@drawable/pub_background"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <!--android:background="@drawable/pub_background">-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -44,6 +45,11 @@
                         android:textColor="@color/pink"
                         android:layout_marginLeft="5dp"
                         android:id="@+id/pub__nom_prenom"/>
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
