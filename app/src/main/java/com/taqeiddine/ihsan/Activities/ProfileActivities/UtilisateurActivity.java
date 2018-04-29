@@ -103,6 +103,7 @@ public class UtilisateurActivity extends AppCompatActivity {
                         Utilisateur utilisateur;
                         utilisateur= (Utilisateur) Profile.fromJsonINFOPROFILE(jsonObject);
                         initRatingBar(utilisateur.getConfiance());
+                        initNBRS(utilisateur.getNbfollowers(),utilisateur.getNbfollowee(),utilisateur.getNbpublications());
                         nameandlastname.setText(utilisateur.getNom()+"  "+utilisateur.getPrenom());
                         if (utilisateur.getPhotodeprofil()!=null){
                             Glide.with(UtilisateurActivity.this).load(Help.getMedia()+utilisateur.getPhotodeprofil().getUrl()).into(photodeprofile);
@@ -274,6 +275,14 @@ public class UtilisateurActivity extends AppCompatActivity {
                 ratingBar.setRating(confiance/20);
         }
 
+    }
+    private void initNBRS(int nbfollowers,int nbfollowee,int nbpubs){
+        TextView fs=(TextView) findViewById(R.id.myprofileNumberFollowers);
+        TextView fe=(TextView) findViewById(R.id.myprofilNumberFollowee);
+        TextView pubs=(TextView) findViewById(R.id.myprofileNumberPub);
+        fs.setText(""+nbfollowers);
+        fe.setText(""+nbfollowee);
+        pubs.setText(""+nbpubs);
     }
 
 }

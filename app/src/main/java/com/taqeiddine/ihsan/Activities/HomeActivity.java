@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.taqeiddine.ihsan.Activities.ProfileActivities.UtilisateurMyActivity;
 import com.taqeiddine.ihsan.Fragments.MyHome;
+import com.taqeiddine.ihsan.Fragments.MyUtilisateur;
 import com.taqeiddine.ihsan.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -35,9 +36,8 @@ public class HomeActivity extends AppCompatActivity {
                     //transaction.replace(R.id.maincontent,new BlankFragment()).commit();
                     return true;
                 case R.id.navigation_myprofile:{
-                    Intent intent=new Intent(HomeActivity.this,UtilisateurMyActivity.class);
-                    intent.putExtra("myidutilisateur",getIntent().getStringExtra("myidutilisateur"));
-                    startActivity(intent);
+                    transaction.replace(R.id.maincontent,new MyUtilisateur()).commit();
+
                     return true;
                 }
 

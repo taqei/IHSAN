@@ -1,19 +1,22 @@
-package com.taqeiddine.ihsan.Activities.ProfileActivities;
+package com.taqeiddine.ihsan.Fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.icu.lang.UCharacterEnums;
 import android.net.Uri;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,6 +35,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.taqeiddine.ihsan.Activities.CreerAssociationActivity;
+import com.taqeiddine.ihsan.Activities.ProfileActivities.AssociationAdminActivity;
+import com.taqeiddine.ihsan.Activities.ProfileActivities.UtilisateurMyActivity;
 import com.taqeiddine.ihsan.Adapters.MyDividerItemDecoration;
 import com.taqeiddine.ihsan.Adapters.ProfileRecyAdapter;
 import com.taqeiddine.ihsan.Adapters.PublicationSmallAdapter;
@@ -55,9 +60,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
-public class UtilisateurMyActivity extends AppCompatActivity {
+public class MyUtilisateur extends Fragment {
     private TextView nameandlastname;
     private Button buttonOne,buttonTwo;
     private CircleImageView photodeprofile;
@@ -76,18 +80,26 @@ public class UtilisateurMyActivity extends AppCompatActivity {
     ProgressBar progressBar;
     RecyclerView recyclerView;
     NestedScrollView nestedScrollView;
-
     protected Utilisateur me;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_utilisateur_my);
 
-        nameandlastname =(TextView) findViewById(R.id.myprofileName);
+    View v;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_my_utilisateur, container, false);
+    }
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        nameandlastname =(TextView) getView().findViewById(R.id.myprofileName);
 
         //buttonOne=(Button) findViewById(R.id.myprofileBtnOne);
-        photodeprofile=(CircleImageView) findViewById(R.id.my_profile_image);
-        changePhoto=(ImageView) findViewById(R.id.my_profile_changeImage);
+        photodeprofile=(CircleImageView) getView().findViewById(R.id.my_profile_image);
+        changePhoto=(ImageView) getView().findViewById(R.id.my_profile_changeImage);
         changePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,9 +109,9 @@ public class UtilisateurMyActivity extends AppCompatActivity {
             }
         });
         me=new Utilisateur();
-        me.setIdprofile(getIntent().getStringExtra("myidutilisateur"));
+        me.setIdprofile(getActivity().getIntent().getStringExtra("myidutilisateur"));
 
-        requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(getActivity());
         publicationSmallAdapter.setRequestQueue(requestQueue);
 
         getProfileInfo getProfileInfo =new getProfileInfo(me, new Response.Listener<String>() {
@@ -117,19 +129,19 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                         initNBRS(utilisateur.getNbfollowers(),utilisateur.getNbfollowee(),utilisateur.getNbpublications());
 
                         if (utilisateur.getPhotodeprofil()!=null){
-                            Glide.with(UtilisateurMyActivity.this).load(Help.getMedia()+utilisateur.getPhotodeprofil().getUrl()).into(photodeprofile);
+                            Glide.with(getActivity()).load(Help.getMedia()+utilisateur.getPhotodeprofil().getUrl()).into(photodeprofile);
                         }
                         if (utilisateur instanceof ChefAssociation){
                             final ChefAssociation chefAssociation=(ChefAssociation) utilisateur;
-                            associationLayout=(LinearLayout) findViewById(R.id.profile_my_layout_myasso);
-                            associationText=(TextView) findViewById(R.id.profile_my_myasso);
+                            associationLayout=(LinearLayout) getView().findViewById(R.id.profile_my_layout_myasso);
+                            associationText=(TextView) getView().findViewById(R.id.profile_my_myasso);
                             associationLayout.setVisibility(View.VISIBLE);
                             me=chefAssociation;
                             associationText.setText(chefAssociation.getAssociation().getNomassociation());
                             associationLayout.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent intent=new Intent(UtilisateurMyActivity.this, AssociationAdminActivity.class);
+                                    Intent intent=new Intent(getActivity(), AssociationAdminActivity.class);
                                     intent.putExtra("myidassociation",chefAssociation.getAssociation().getIdprofile());
                                     intent.putExtra("myidchef",chefAssociation.getIdprofile());
                                     startActivity(intent);
@@ -137,12 +149,12 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                             });
                         }else{
                             me=utilisateur;
-                            associationLayout=(LinearLayout) findViewById(R.id.profile_my_layout_newasso);
+                            associationLayout=(LinearLayout) getView().findViewById(R.id.profile_my_layout_newasso);
                             associationLayout.setVisibility(View.VISIBLE);
                             associationLayout.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent intent=new Intent(UtilisateurMyActivity.this, CreerAssociationActivity.class);
+                                    Intent intent=new Intent(getActivity(), CreerAssociationActivity.class);
                                     intent.putExtra("myidutilisateur",utilisateur.getIdprofile());
 
                                     startActivity(intent);
@@ -160,25 +172,25 @@ public class UtilisateurMyActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 if (error instanceof ServerError)
-                    Toast.makeText(UtilisateurMyActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Server Error", Toast.LENGTH_SHORT).show();
                 else if (error instanceof TimeoutError)
-                    Toast.makeText(UtilisateurMyActivity.this, "Connection Timed Out", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Connection Timed Out", Toast.LENGTH_SHORT).show();
                 else if (error instanceof NetworkError)
-                    Toast.makeText(UtilisateurMyActivity.this, "Bad Network Connection", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Bad Network Connection", Toast.LENGTH_SHORT).show();
             }
         });
 
         publicationSmallAdapter.setMe(me);
         requestQueue.add(getProfileInfo);
-        recyclerView=(RecyclerView) findViewById(R.id.recy_pub_my_profile);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        recyclerView=(RecyclerView) getView().findViewById(R.id.recy_pub_my_profile);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new MyDividerItemDecoration(this, LinearLayoutManager.VERTICAL, 16));
+        recyclerView.addItemDecoration(new MyDividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL, 16));
         recyclerView.setAdapter(publicationSmallAdapter);
         recyclerView.setNestedScrollingEnabled(false);
-        nestedScrollView=(NestedScrollView) findViewById(R.id.scroll_my_profile);
-        progressBar=(ProgressBar) findViewById(R.id.profile_my_progress);
+        nestedScrollView=(NestedScrollView) getView().findViewById(R.id.scroll_my_profile);
+        progressBar=(ProgressBar) getView().findViewById(R.id.profile_my_progress);
 
         nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
@@ -195,6 +207,8 @@ public class UtilisateurMyActivity extends AppCompatActivity {
         });
 
         GETTHEPUBLICATIONS();
+
+
     }
 
     private void GETTHEPUBLICATIONS(){
@@ -242,14 +256,14 @@ public class UtilisateurMyActivity extends AppCompatActivity {
             try {
                 //parsing the Intent data and displaying it in the imageview
                 Uri imageUri = data.getData();//Geting uri of the data
-                InputStream imageStream = this.getContentResolver().openInputStream(imageUri);//creating an imputstrea
+                InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);//creating an imputstrea
                 Photo photo= new Photo(BitmapFactory.decodeStream(imageStream));//decoding the input stream to bitmap
                 me.setPhotodeprofil(photo);
                 photodeprofile.setImageBitmap(photo.getPhoto());
 
                 //Glide.with(MyProfile.this).load(photo.getPhoto()).asBitmap().into(photodeprofile);
 
-                final ProgressDialog progress = new ProgressDialog(this);
+                final ProgressDialog progress = new ProgressDialog(getActivity());
                 progress.setTitle("Please Wait");
                 progress.setMessage("Uploading");
                 progress.setCancelable(false);
@@ -261,11 +275,11 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                         progress.dismiss();
                         try {
                             if (new JSONObject(s).getBoolean("success")) {
-                                Toast.makeText(UtilisateurMyActivity.this, "Account Successfully Created", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Account Successfully Created", Toast.LENGTH_SHORT).show();
 
                                 // this.finish();
                             } else
-                                Toast.makeText(UtilisateurMyActivity.this, "Something Has Happened. Please Try Again!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Something Has Happened. Please Try Again!", Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -282,7 +296,7 @@ public class UtilisateurMyActivity extends AppCompatActivity {
     }
 
     private void initRatingBar(int confiance){
-        RatingBar ratingBar=(RatingBar)findViewById(R.id.rating_bar_confiance);
+        RatingBar ratingBar=(RatingBar)getView().findViewById(R.id.rating_bar_confiance);
         if(confiance<0)
             ratingBar.setRating(0);
         else{
@@ -295,9 +309,9 @@ public class UtilisateurMyActivity extends AppCompatActivity {
     }
 
     private void initNBRS(int nbfollowers,int nbfollowee,int nbpubs){
-        TextView fs=(TextView) findViewById(R.id.myprofileNumberFollowers);
-        TextView fe=(TextView) findViewById(R.id.myprofilNumberFollowee);
-        TextView pubs=(TextView) findViewById(R.id.myprofileNumberPub);
+        TextView fs=(TextView) getView().findViewById(R.id.myprofileNumberFollowers);
+        TextView fe=(TextView) getView().findViewById(R.id.myprofilNumberFollowee);
+        TextView pubs=(TextView) getView().findViewById(R.id.myprofileNumberPub);
         fs.setText(""+nbfollowers);
         fe.setText(""+nbfollowee);
         pubs.setText(""+nbpubs);
@@ -307,11 +321,11 @@ public class UtilisateurMyActivity extends AppCompatActivity {
         final ArrayList<Profile> utilisateurs=new ArrayList<>();
         final ProfileRecyAdapter adapter=new ProfileRecyAdapter(utilisateurs,me);
 
-        final RecyclerView recyclerView=(RecyclerView) findViewById(R.id.utilisateur_adr_list_recy);
-        final ProgressBar progressBar=(ProgressBar) findViewById(R.id.utilisateur_adr_list_progress);
+        final RecyclerView recyclerView=(RecyclerView) getView().findViewById(R.id.utilisateur_adr_list_recy);
+        final ProgressBar progressBar=(ProgressBar) getView().findViewById(R.id.utilisateur_adr_list_progress);
         recyclerView.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
 
@@ -327,7 +341,7 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                     if(jsonObject.getBoolean("success")){
                         int nbr=jsonObject.getInt("nbrAssociations");
                         if (nbr==0){
-                            RelativeLayout relativeLayout=(RelativeLayout) findViewById(R.id.utilisateur_adr_list_relative);
+                            RelativeLayout relativeLayout=(RelativeLayout) getView().findViewById(R.id.utilisateur_adr_list_relative);
                             relativeLayout.setVisibility(View.GONE);
                         }
                         for (int i=0;i<nbr;i++){
@@ -349,4 +363,5 @@ public class UtilisateurMyActivity extends AppCompatActivity {
 
 
     }
+
 }

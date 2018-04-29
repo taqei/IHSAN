@@ -57,109 +57,102 @@
                                 android:textSize="21sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
-
                         <android.support.v7.widget.CardView
                             android:layout_width="250dp"
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="170dp">
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@color/pink50"
                                 android:orientation="horizontal"
+                                android:background="@color/pink50"
                                 android:weightSum="3">
-
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
+                                    android:orientation="vertical"
+                                    android:gravity="center">
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Followers"
-                                        android:textColor="@color/pink200"
-                                        android:textSize="11sp"
                                         android:textStyle="bold"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/pink200"
 
 
                                         />
-
                                     <TextView
-                                        android:id="@+id/profileotherNumberFollowers"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="5dp"
-                                        android:text="50"
-                                        android:textColor="@color/pink"
+                                        tools:text="50"
+                                        android:textStyle="bold"
                                         android:textSize="17sp"
-                                        android:textStyle="bold" />
+                                        android:textColor="@color/pink"
+                                        android:layout_marginTop="5dp"
+                                        android:id="@+id/myprofileNumberFollowers"/>
                                 </LinearLayout>
-
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:gravity="center">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Followee"
+                                        android:textStyle="bold"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/pink200"
 
+
+                                        />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        tools:text="50"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp"
+                                        android:textColor="@color/pink"
+                                        android:layout_marginTop="5dp"
+                                        android:id="@+id/myprofilNumberFollowee"
+                                        />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:gravity="center">
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Publications"
-                                        android:textColor="@color/pink200"
-                                        android:textSize="11sp"
                                         android:textStyle="bold"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/pink200"
 
                                         />
-
-                                    <TextView
-                                        android:id="@+id/profileotherNumberPub"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="5dp"
-                                        android:text="50"
-                                        android:textColor="@color/pink"
-                                        android:textSize="17sp"
-                                        android:textStyle="bold" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Confiance"
-                                        android:textColor="@color/pink200"
-                                        android:textSize="11sp"
+                                        tools:text="50"
                                         android:textStyle="bold"
-
-                                        />
-
-                                    <TextView
-                                        android:id="@+id/profileotherNivConfiance"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="5dp"
-                                        android:text="50"
-                                        android:textColor="@color/pink"
                                         android:textSize="17sp"
-                                        android:textStyle="bold" />
+                                        android:textColor="@color/pink"
+                                        android:layout_marginTop="5dp"
+                                        android:id="@+id/myprofileNumberPub"
+                                        />
                                 </LinearLayout>
 
 
                             </LinearLayout>
 
                         </android.support.v7.widget.CardView>
+
                     </RelativeLayout>
 
                     <LinearLayout

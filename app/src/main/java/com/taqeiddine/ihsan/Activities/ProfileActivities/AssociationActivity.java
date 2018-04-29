@@ -127,8 +127,9 @@ public class AssociationActivity extends AppCompatActivity {
             @Override
             public void onResponse(String s) {
                 try{
-                    association=(Association) Profile.fromJsonINFOPROFILE(new JSONObject(s));
-                    name.setText(association.getNomassociation());
+                    Association association1=(Association) Profile.fromJsonINFOPROFILE(new JSONObject(s));
+                    name.setText(association1.getNomassociation());
+                    initNBRS(association1.getNbfollowers(),association1.getNbpublications());
                     if (association.getPhotodeprofil()!=null){
                         Glide.with(AssociationActivity.this).load(Help.getMedia()+association.getPhotodeprofil().getUrl()).into(photodeprofil);
                     }
@@ -412,5 +413,12 @@ public class AssociationActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(adrEtat);
+    }
+    private void initNBRS(int nbfollowers,int nbpubs){
+        TextView fs=(TextView) findViewById(R.id.my_association_NumberFollowers);
+        TextView pubs=(TextView) findViewById(R.id.my_association_NumberPub);
+        fs.setText(""+nbfollowers);
+        ;
+        pubs.setText(""+nbpubs);
     }
 }

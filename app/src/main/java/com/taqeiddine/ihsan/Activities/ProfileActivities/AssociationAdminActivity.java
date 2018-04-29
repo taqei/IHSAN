@@ -117,6 +117,8 @@ public class AssociationAdminActivity extends AppCompatActivity {
                     Association association1=(Association) Profile.fromJsonINFOPROFILE(new JSONObject(s));
                     name.setText(association1.getNomassociation());
                     phone.setText(association1.getPhone());
+
+                    initNBRS(association1.getNbfollowers(),association1.getNbpublications());
                     if (association1.getPhotodeprofil()!=null){
                         Glide.with(AssociationAdminActivity.this).load(Help.getMedia()+association1.getPhotodeprofil().getUrl()).into(photodeprofil);
                     }
@@ -444,5 +446,11 @@ public class AssociationAdminActivity extends AppCompatActivity {
         requestQueue.add(demandes);
 
     }
-
+    private void initNBRS(int nbfollowers,int nbpubs){
+        TextView fs=(TextView) findViewById(R.id.my_association_NumberFollowers);
+        TextView pubs=(TextView) findViewById(R.id.my_association_NumberPub);
+        fs.setText(""+nbfollowers);
+        ;
+        pubs.setText(""+nbpubs);
+    }
 }
