@@ -86,6 +86,7 @@
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:text="Connexion"
+            android:id="@+id/authGo"
             android:textStyle="normal"
             android:background="@drawable/registerbtne"
             android:layout_marginBottom="15dp"

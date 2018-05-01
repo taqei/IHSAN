@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -19,6 +20,8 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.taqeiddine.ihsan.Activities.HomeActivity;
+import com.taqeiddine.ihsan.Firebase.SharedPrefManager;
+import com.taqeiddine.ihsan.Model.Profile.Utilisateur;
 import com.taqeiddine.ihsan.R;
 import com.taqeiddine.ihsan.VOLLEY.Profile.LoginRequest;
 
@@ -34,11 +37,38 @@ public class Authentification extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestQueue = Volley.newRequestQueue(Authentification.this);
+        final String user= SharedPrefManager.getInstance(this).getUserName();
+        final String mdpe=SharedPrefManager.getInstance(this).getMDP();
+        if(user!=null && mdpe!=null){
+
+            LoginRequest loginRequest=new LoginRequest(user, mdpe, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(s);
+                        if (jsonObject.getBoolean("success")) {
+
+                            Intent loginSuccess = new Intent(Authentification.this, HomeActivity.class);
+                            loginSuccess.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
+                            //Passing all received data from server to next activity
+                            startActivity(loginSuccess);
+                            finish();
+                        }}catch (JSONException e){
+
+                        }
+                }
+            },null);
+            requestQueue.add(loginRequest);
+        }
         setContentView(R.layout.activity_authentification);
         getWindow().setBackgroundDrawableResource(R.drawable.appbackground);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         inti();
         requestQueue = Volley.newRequestQueue(Authentification.this);
+
+
+
     }
 
     public void InscrivezVous(View view){
@@ -47,16 +77,15 @@ public class Authentification extends AppCompatActivity {
 
     }
     public void Connexion(View view){
-        String mail,mp;
-        mail=email.getText().toString();
-        mp=mdp.getText().toString();
+        final String mail=email.getText().toString(),mp=mdp.getText().toString();
+
         if (validateEmail(mail) && validatePassword(mp)){
             final ProgressDialog progressDialog = new ProgressDialog(Authentification.this);
             progressDialog.setTitle("Attendez");
             progressDialog.setMessage("Logging You In");
             progressDialog.setCancelable(false);
             progressDialog.show();
-            LoginRequest loginRequest = new LoginRequest(mail, mp, new Response.Listener<String>() {
+            final LoginRequest loginRequest = new LoginRequest(mail, mp, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.i("Login Response", response);
@@ -65,7 +94,12 @@ public class Authentification extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         if (jsonObject.getBoolean("success")) {
+                            Utilisateur utilisateur=new Utilisateur();
+                            utilisateur.setEmail(email.getText().toString());
+                            utilisateur.setPass(mdp.getText().toString());
+                            SharedPrefManager.getInstance(Authentification.this).saveUserInfo(utilisateur);
 
+                            Log.i("AOCCCCC",SharedPrefManager.getInstance(Authentification.this).getUserName()+ " hhhhh  "+SharedPrefManager.getInstance(Authentification.this).getMDP());
                             Intent loginSuccess = new Intent(Authentification.this, HomeActivity.class);
                             loginSuccess.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
                             //Passing all received data from server to next activity
