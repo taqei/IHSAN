@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.taqeiddine.ihsan.Activities.ProfileActivities.UtilisateurMyActivity;
 import com.taqeiddine.ihsan.Fragments.MyHome;
+import com.taqeiddine.ihsan.Fragments.MyMessages;
 import com.taqeiddine.ihsan.Fragments.MyUtilisateur;
 import com.taqeiddine.ihsan.R;
 
@@ -37,6 +38,11 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_myprofile:{
                     transaction.replace(R.id.maincontent,new MyUtilisateur()).commit();
+
+                    return true;
+                }
+                case R.id.navigation_messages:{
+                    transaction.replace(R.id.maincontent,new MyMessages()).commit();
 
                     return true;
                 }

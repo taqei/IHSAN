@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
@@ -394,9 +395,14 @@ public class SignalerPNActiviy extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1001 && resultCode == Activity.RESULT_OK && data != null) {
             try{
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                //swt the color scheme to something less memory consuming
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                //scale the image by factor 2
+                options.inSampleSize = 2;
                 Uri imageUri = data.getData();//Geting uri of the data
                 InputStream imageStream = SignalerPNActiviy.this.getContentResolver().openInputStream(imageUri);//creating an imputstrea
-                Photo photo=new Photo(BitmapFactory.decodeStream(imageStream));
+                Photo photo=new Photo(BitmapFactory.decodeStream(imageStream,null,options));
                 albumPhoto.addPhoto(photo);//decoding the input stream to bitmap
                 photoAddAdapter.notifyDataSetChanged();
             } catch (FileNotFoundException e) {

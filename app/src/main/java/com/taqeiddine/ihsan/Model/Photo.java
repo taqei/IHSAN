@@ -69,6 +69,8 @@ public class Photo {
         this.photo = photo;
     }
 
+
+
     public  String  convertBitmapToString() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         photo.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -85,5 +87,9 @@ public class Photo {
             e.getMessage();
             return null;
         }
+
     }
+
+
+
 }

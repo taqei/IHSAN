@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v4.widget.NestedScrollView;
@@ -268,6 +269,11 @@ public class AssociationAdminActivity extends AppCompatActivity {
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK && data != null) {
             //Image Successfully Selected
             try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                //swt the color scheme to something less memory consuming
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                //scale the image by factor 2
+                options.inSampleSize = 2;
                 //parsing the Intent data and displaying it in the imageview
                 Uri imageUri = data.getData();//Geting uri of the data
                 InputStream imageStream = getContentResolver().openInputStream(imageUri);//creating an imputstrea

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -255,10 +256,15 @@ public class MyUtilisateur extends Fragment {
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK && data != null) {
             //Image Successfully Selected
             try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                //swt the color scheme to something less memory consuming
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                //scale the image by factor 2
+                options.inSampleSize = 2;
                 //parsing the Intent data and displaying it in the imageview
                 Uri imageUri = data.getData();//Geting uri of the data
                 InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);//creating an imputstrea
-                Photo photo= new Photo(BitmapFactory.decodeStream(imageStream));//decoding the input stream to bitmap
+                Photo photo= new Photo(BitmapFactory.decodeStream(imageStream,null,options));//decoding the input stream to bitmap
                 me.setPhotodeprofil(photo);
                 photodeprofile.setImageBitmap(photo.getPhoto());
 
