@@ -451,13 +451,13 @@ public class ProjetActivity extends AppCompatActivity {
             PublierRequest publierRequest=new PublierRequest(projet, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String s) {
-                    Log.i("taq", s);
+                    Log.i("taqproject", s);
                     progressDialog.dismiss();
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
-                    Log.i("taq", volleyError.toString());
+                    Log.i("taqproject", volleyError.toString());
                 }
             });
             requestQueue.add(publierRequest);

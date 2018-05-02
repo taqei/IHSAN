@@ -277,7 +277,7 @@ public class AssociationAdminActivity extends AppCompatActivity {
                 //parsing the Intent data and displaying it in the imageview
                 Uri imageUri = data.getData();//Geting uri of the data
                 InputStream imageStream = getContentResolver().openInputStream(imageUri);//creating an imputstrea
-                Photo photo= new Photo(BitmapFactory.decodeStream(imageStream));//decoding the input stream to bitmap
+                Photo photo= new Photo(BitmapFactory.decodeStream(imageStream,null,options));//decoding the input stream to bitmap
                 association.setPhotodeprofil(photo);
                 photodeprofil.setImageBitmap(photo.getPhoto());
 

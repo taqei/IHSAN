@@ -36,8 +36,9 @@ public class SharedPrefManager {
     public boolean saveUserInfo(Utilisateur utilisateur){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("idutilisateur", utilisateur.getEmail());
+        editor.putString("emailutilisateur", utilisateur.getEmail());
         editor.putString("passwordutilisateur",utilisateur.getPass());
+        editor.putString("idutilisateur",utilisateur.getIdprofile());
         editor.commit();
         editor.apply();
 
@@ -48,7 +49,7 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("idassociation", chefAssociation.getAssociation().getIdprofile());
-        editor.putString("chef",""+1);
+        editor.putInt("ichef",1);
         editor.commit();
         editor.apply();
         return true;
@@ -56,17 +57,21 @@ public class SharedPrefManager {
 
     public String getUserName(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE);
-        return  sharedPreferences.getString("idutilisateur", null);
+        return  sharedPreferences.getString("emailutilisateur", null);
     }
 
     public String getMDP(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE);
         return  sharedPreferences.getString("passwordutilisateur", null);
     }
+    public String getID(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE);
+        return  sharedPreferences.getString("idutilisateur", null);
+    }
 
     public int isChef(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE);
-        return  sharedPreferences.getInt("chef",0);
+        return  sharedPreferences.getInt("ichef",0);
     }
 
     public String getIDAssociation(){

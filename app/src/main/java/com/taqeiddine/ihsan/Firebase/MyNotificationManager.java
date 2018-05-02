@@ -10,6 +10,9 @@ import android.support.v4.app.NotificationCompat;
 
 import com.taqeiddine.ihsan.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MyNotificationManager {
     public static final int ID_SMALL_NOTIFICATION = 235;
     private Context mCtx;
@@ -29,12 +32,12 @@ public class MyNotificationManager {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mCtx);
         Notification notification;
-        notification = mBuilder.setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
+        notification = mBuilder.setSmallIcon( R.drawable.ic_logo).setTicker(title).setWhen(0)
                 .setAutoCancel(true)
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle(title)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon( R.drawable.ic_logo)
+                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.ic_logo))
                 .setContentText(message)
                 .build();
 

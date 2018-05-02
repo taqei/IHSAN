@@ -97,9 +97,9 @@ public class Authentification extends AppCompatActivity {
                             Utilisateur utilisateur=new Utilisateur();
                             utilisateur.setEmail(email.getText().toString());
                             utilisateur.setPass(mdp.getText().toString());
+                            utilisateur.setIdprofile(jsonObject.getString("idprofil"));
                             SharedPrefManager.getInstance(Authentification.this).saveUserInfo(utilisateur);
 
-                            Log.i("AOCCCCC",SharedPrefManager.getInstance(Authentification.this).getUserName()+ " hhhhh  "+SharedPrefManager.getInstance(Authentification.this).getMDP());
                             Intent loginSuccess = new Intent(Authentification.this, HomeActivity.class);
                             loginSuccess.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
                             //Passing all received data from server to next activity

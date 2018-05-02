@@ -112,7 +112,9 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
         intervenir.setClickable(false);
         requestQueue = Volley.newRequestQueue(this);
 
-
+        Intent intent=getIntent();
+        Bundle extraData=intent.getExtras();
+        String a=extraData.getString("myidutilisateur");
         if(getIntent().getIntExtra("chef",3)==1){
             ChefAssociation chefAssociation;
             chefAssociation=new ChefAssociation(getIntent().getExtras().getString("myidutilisateur"));

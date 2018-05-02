@@ -41,6 +41,7 @@ import com.taqeiddine.ihsan.Activities.ProfileActivities.UtilisateurMyActivity;
 import com.taqeiddine.ihsan.Adapters.MyDividerItemDecoration;
 import com.taqeiddine.ihsan.Adapters.ProfileRecyAdapter;
 import com.taqeiddine.ihsan.Adapters.PublicationSmallAdapter;
+import com.taqeiddine.ihsan.Firebase.SharedPrefManager;
 import com.taqeiddine.ihsan.Help;
 import com.taqeiddine.ihsan.Model.Photo;
 import com.taqeiddine.ihsan.Model.Profile.ChefAssociation;
@@ -139,6 +140,9 @@ public class MyUtilisateur extends Fragment {
                             associationText=(TextView) getView().findViewById(R.id.profile_my_myasso);
                             associationLayout.setVisibility(View.VISIBLE);
                             me=chefAssociation;
+                            if(SharedPrefManager.getInstance(getActivity()).isChef()==0){
+                                SharedPrefManager.getInstance(getActivity()).saveChefAsso(chefAssociation);
+                            }
                             associationText.setText(chefAssociation.getAssociation().getNomassociation());
                             associationLayout.setOnClickListener(new View.OnClickListener() {
                                 @Override
