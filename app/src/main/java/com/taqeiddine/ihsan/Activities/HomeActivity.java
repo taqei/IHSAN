@@ -19,6 +19,7 @@ import com.taqeiddine.ihsan.Firebase.SharedPrefManager;
 import com.taqeiddine.ihsan.Fragments.MyHome;
 import com.taqeiddine.ihsan.Fragments.MyMessages;
 import com.taqeiddine.ihsan.Fragments.MyNotifications;
+import com.taqeiddine.ihsan.Fragments.MySearch;
 import com.taqeiddine.ihsan.Fragments.MyUtilisateur;
 import com.taqeiddine.ihsan.Model.Profile.Utilisateur;
 import com.taqeiddine.ihsan.R;
@@ -66,6 +67,8 @@ public class HomeActivity extends AppCompatActivity {
                 }
 
                 case  R.id.navigation_recherche:{
+                    transaction.replace(R.id.maincontent,new MySearch()).commit();
+                    return true;
 
                 }
 

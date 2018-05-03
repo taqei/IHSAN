@@ -45,13 +45,13 @@ public class NotficationsAdapter extends RecyclerView.Adapter<NotficationsAdapte
         holder.titre.setText(notification.getTitle());
         holder.text.setText(notification.getMessage());
         switch (notification.getCode()){
-            case 0:{holder.frameLayout.setBackgroundResource(R.color.a0);break;}
-            case 1:{holder.frameLayout.setBackgroundResource(R.color.a1);break;}
-            case 2:{holder.frameLayout.setBackgroundResource(R.color.a2);break;}
-            case 3:{holder.frameLayout.setBackgroundResource(R.color.a3);break;}
-            case 4:{holder.frameLayout.setBackgroundResource(R.color.a4);break;}
-            case 5:{holder.frameLayout.setBackgroundResource(R.color.a5);break;}
-            case 6:{holder.frameLayout.setBackgroundResource(R.color.a6);break;}
+            case 0:{holder.frameLayout.setBackgroundResource(R.color.a0);holder.titre.setTextColor(Color.parseColor("#FF1744"));break;}
+            case 1:{holder.frameLayout.setBackgroundResource(R.color.a1);holder.titre.setTextColor(Color.parseColor("#D500F9"));break;}
+            case 2:{holder.frameLayout.setBackgroundResource(R.color.a2);holder.titre.setTextColor(Color.parseColor("#2979FF"));break;}
+            case 3:{holder.frameLayout.setBackgroundResource(R.color.a3);holder.titre.setTextColor(Color.parseColor("#3D5AFE"));break;}
+            case 4:{holder.frameLayout.setBackgroundResource(R.color.a4);holder.titre.setTextColor(Color.parseColor("#651FFF"));break;}
+            case 5:{holder.frameLayout.setBackgroundResource(R.color.a5);holder.titre.setTextColor(Color.parseColor("#1DE9B6"));break;}
+            case 6:{holder.frameLayout.setBackgroundResource(R.color.a6);holder.titre.setTextColor(Color.parseColor("#00E676"));break;}
         }
     }
 
