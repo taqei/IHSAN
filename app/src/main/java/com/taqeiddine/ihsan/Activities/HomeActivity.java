@@ -18,6 +18,7 @@ import com.taqeiddine.ihsan.Activities.ProfileActivities.UtilisateurMyActivity;
 import com.taqeiddine.ihsan.Firebase.SharedPrefManager;
 import com.taqeiddine.ihsan.Fragments.MyHome;
 import com.taqeiddine.ihsan.Fragments.MyMessages;
+import com.taqeiddine.ihsan.Fragments.MyNotifications;
 import com.taqeiddine.ihsan.Fragments.MyUtilisateur;
 import com.taqeiddine.ihsan.Model.Profile.Utilisateur;
 import com.taqeiddine.ihsan.R;
@@ -36,30 +37,43 @@ public class HomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentManager fragmentManager=getSupportFragmentManager();
             FragmentTransaction transaction=fragmentManager.beginTransaction();
+
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_home:{
                     transaction.replace(R.id.maincontent,new MyHome()).commit();
-
-
-                case R.id.navigation_notifications:
-                    //transaction.replace(R.id.maincontent,new BlankFragment()).commit();
                     return true;
+                }
+
+
+
+                case R.id.navigation_notifications:{
+                    transaction.replace(R.id.maincontent,new MyNotifications()).commit();
+                    return true;
+
+                }
+
                 case R.id.navigation_myprofile:{
                     transaction.replace(R.id.maincontent,new MyUtilisateur()).commit();
-
                     return true;
+
+
                 }
                 case R.id.navigation_messages:{
                     transaction.replace(R.id.maincontent,new MyMessages()).commit();
-
                     return true;
+
+
                 }
 
-                case  R.id.navigation_recherche:
-                    return true;
+                case  R.id.navigation_recherche:{
+
+                }
+
 
             }
-            return false;
+            transaction.commit();
+            return true;
+
         }
 
     };

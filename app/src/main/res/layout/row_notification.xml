@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+    <FrameLayout
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:id="@+id/notif_framelayout"
+        android:background="@color/pink700"></FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            tools:text="taqeii"
+            android:textStyle="bold"
+            android:textColor="@color/pink700"
+            android:id="@+id/notif_titre"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="the notification"
+            android:id="@+id/notif_msg"/>
+    </LinearLayout>
+
+</LinearLayout>

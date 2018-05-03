@@ -11,6 +11,7 @@ import com.taqeiddine.ihsan.Activities.PublicationActivities.InterventionsActivi
 import com.taqeiddine.ihsan.Activities.PublicationActivities.ProjetActivity;
 import com.taqeiddine.ihsan.Activities.PublicationActivities.ProjetDetailsActivity;
 import com.taqeiddine.ihsan.Activities.PublicationActivities.SignalPnDetailsActivity;
+import com.taqeiddine.ihsan.DataBaseSQLite.DatabaseHelper;
 import com.taqeiddine.ihsan.MainActivity;
 import com.taqeiddine.ihsan.Model.Profile.Association;
 
@@ -34,6 +35,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private void sendPushNotification(JSONObject json) {
         Log.e(TAG, "Notification JSON " + json.toString());
+        DatabaseHelper databaseHelper=new DatabaseHelper(getBaseContext());
+        long i=databaseHelper.insertNotification(json.toString());
+        Log.i("khourii is speed","+"+i);
         try {
             //getting the json data
             JSONObject data = json.getJSONObject("data");
@@ -87,7 +91,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             intent.putExtra("myidassociation",SharedPrefManager.getInstance(this).getIDAssociation());
                         }
                         intent.putExtra("chef",SharedPrefManager.getInstance(this).isChef());
-                        intent = new Intent(getApplicationContext(), SignalPnDetailsActivity.class);
+
                         mNotificationManager.showNotification("IHSAN APP", message, intent);
                         break;
                     }
