@@ -14,6 +14,7 @@ public class ChefAssociation extends Utilisateur {
     public ChefAssociation(Utilisateur utilisateur,Association association){
         super(utilisateur.getIdprofile(),utilisateur.getNom(),utilisateur.getPrenom(),utilisateur.getPhone(),utilisateur.getEmail(),null);
         this.setPhotodeprofil(utilisateur.getPhotodeprofil());
+        this.setConfiance(utilisateur.getConfiance());
         this.association=association;
     }
 

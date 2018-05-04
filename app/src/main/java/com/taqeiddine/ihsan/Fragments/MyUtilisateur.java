@@ -307,7 +307,7 @@ public class MyUtilisateur extends Fragment {
     }
 
     private void initRatingBar(int confiance){
-        RatingBar ratingBar=(RatingBar)getView().findViewById(R.id.rating_bar_confiance);
+        RatingBar ratingBar=(RatingBar) getView().findViewById(R.id.rating_bar_confiance);
         if(confiance<0)
             ratingBar.setRating(0);
         else{
