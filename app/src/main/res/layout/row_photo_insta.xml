@@ -3,7 +3,7 @@
     android:layout_width="350dp"
     android:layout_height="350dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/pink50"
+
     android:gravity="center_horizontal"
     >
     <ImageView

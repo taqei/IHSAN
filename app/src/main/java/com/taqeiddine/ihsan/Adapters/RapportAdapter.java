@@ -2,6 +2,8 @@ package com.taqeiddine.ihsan.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.taqeiddine.ihsan.Activities.PublicationActivities.ProjetDetailsActivity;
 import com.taqeiddine.ihsan.Activities.PublicationActivities.SignalPnDetailsActivity;
 import com.taqeiddine.ihsan.Model.ActivityRapport;
 import com.taqeiddine.ihsan.Model.Profile.Utilisateur;
@@ -45,6 +48,17 @@ public class RapportAdapter extends RecyclerView.Adapter<RapportAdapter.MyViewHo
         holder.descri.setText(rapport.getText());
         holder.pubtitre.setText(rapport.getPublication().getTitrepub());
 
+        if(rapport.getAlbumPhoto().getListPhoto().size()==0)
+            holder.images.setVisibility(View.GONE);
+        else{
+            InstaAdapter instaAdapter=new InstaAdapter(rapport.getAlbumPhoto(),context);
+            RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+            holder.images.setLayoutManager(mLayoutManager1);
+            holder.images.setItemAnimator(new DefaultItemAnimator());
+            holder.images.addItemDecoration(new MyDividerItemDecoration(context, LinearLayoutManager.HORIZONTAL, 16));
+            holder.images.setAdapter(instaAdapter);
+        }
+
         holder.publication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +82,7 @@ public class RapportAdapter extends RecyclerView.Adapter<RapportAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView titre,descri,pubtitre;
         LinearLayout publication;
+        RecyclerView images;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -75,6 +90,8 @@ public class RapportAdapter extends RecyclerView.Adapter<RapportAdapter.MyViewHo
             descri=(TextView) itemView.findViewById(R.id.row_rapport_desc);
             pubtitre=(TextView) itemView.findViewById(R.id.row_rapport_titrepub);
             publication=(LinearLayout) itemView.findViewById(R.id.row_rapport_pub);
+            images=(RecyclerView) itemView.findViewById(R.id.detailspn_recy_photos);
+
 
         }
     }

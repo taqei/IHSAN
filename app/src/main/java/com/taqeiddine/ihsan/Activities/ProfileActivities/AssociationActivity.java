@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -77,6 +79,10 @@ public class AssociationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_association);
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         photodeprofil=(CircleImageView) findViewById(R.id.association_image);
         name=(TextView) findViewById(R.id.association_Name);
@@ -129,6 +135,7 @@ public class AssociationActivity extends AppCompatActivity {
                 try{
                     Association association1=(Association) Profile.fromJsonINFOPROFILE(new JSONObject(s));
                     name.setText(association1.getNomassociation());
+                    myToolbar.setTitle(association1.getNomassociation());
                     initNBRS(association1.getNbfollowers(),association1.getNbpublications());
                     if (association.getPhotodeprofil()!=null){
                         Glide.with(AssociationActivity.this).load(Help.getMedia()+association.getPhotodeprofil().getUrl()).into(photodeprofil);

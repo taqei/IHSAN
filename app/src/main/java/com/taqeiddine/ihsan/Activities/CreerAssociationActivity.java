@@ -3,6 +3,7 @@ package com.taqeiddine.ihsan.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -40,9 +41,19 @@ public class CreerAssociationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creer_association);
+
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle("Créer une Association");
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+
         nom=(AutoCompleteTextView)findViewById(R.id.creerassociation_nomasso);
         phone=(AutoCompleteTextView) findViewById(R.id.creerassociation_numphone);
         adress=(AutoCompleteTextView) findViewById(R.id.creerassociation_adresse);
+
         requestQueue= Volley.newRequestQueue(this);
         chefAssociation=new ChefAssociation(getIntent().getExtras().getString("myidutilisateur"));
         initAdresse();

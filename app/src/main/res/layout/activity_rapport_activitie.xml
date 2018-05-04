@@ -1,82 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activities.RapportActivities.RapportActivitieActivity">
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
+        <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pink400"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <!-- Toolbar is the actual app bar with text and the action items -->
+
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:background="@color/white"
+android:background="@color/white"
+        android:clipToPadding="false"
+        android:orientation="vertical"
         android:padding="10dp"
-        android:orientation="vertical">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ajouter un Rapport d'activitie"
-            android:textColor="@color/pink700"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:layout_marginBottom="20dp"/>
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_password"
+            <MultiAutoCompleteTextView
+                android:id="@+id/activitie_act_titre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="taq" />
+                android:layout_marginBottom="10dp"
+                android:hint="titre de votre activitie"
+                android:textColor="@color/pink"
+                android:textColorHint="@color/pink" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/activitie_act_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Description"
+                android:textColor="@color/pink"
+                android:textColorHint="@color/pink" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/activitie_act_recy_photo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"></android.support.v7.widget.RecyclerView>
+
+        <android.support.design.widget.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <MultiAutoCompleteTextView
+                android:id="@+id/activitie_act_publication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Id Publication"
+                android:textColor="@color/pink"
+                android:editable="false"
+                android:textColorHint="@color/pink" />
+
 
         </android.support.design.widget.TextInputLayout>
 
 
 
-        <MultiAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/activitie_act_titre"
-            android:hint="titre de votre activitie"
-            android:textColorHint="@color/pink"
-            android:textColor="@color/pink"
-            android:layout_marginBottom="10dp"/>
-        <MultiAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/activitie_act_text"
-            android:hint="Description"
-            android:textColorHint="@color/pink"
-            android:textColor="@color/pink"
-            android:layout_marginBottom="10dp"/>
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/activitie_act_recy_photo"
-            android:layout_marginBottom="10dp"
-            >
-        </android.support.v7.widget.RecyclerView>
 
-        <MultiAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/activitie_act_publication"
-            android:hint="Id Publication"
-            android:textColorHint="@color/pink"
-            android:textColor="@color/pink"
-            android:layout_marginBottom="10dp"/>
+
+
+
 
 
         <Button
+            android:id="@+id/activitie_act_publier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Publier"
-            android:id="@+id/activitie_act_publier"
-            />
+            android:text="Publier" />
     </LinearLayout>
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

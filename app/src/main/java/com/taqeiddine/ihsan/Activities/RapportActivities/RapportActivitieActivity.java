@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -21,6 +23,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -63,6 +66,11 @@ public class RapportActivitieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rapport_activitie);
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle("Ajouter un rapport d'activity");
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         requestQueue= Volley.newRequestQueue(this);
 
@@ -152,8 +160,10 @@ public class RapportActivitieActivity extends AppCompatActivity {
                 InsertRapport insertRapport=new InsertRapport(rapport, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        Log.i("ooooooooooooooo",s);
+
                         progressDialog.dismiss();
+                        Toast.makeText(RapportActivitieActivity.this,"Votre requette a été bien effectué",Toast.LENGTH_LONG).show();
+                        RapportActivitieActivity.this.finish();
                     }
                 });
                 requestQueue.add(insertRapport);
@@ -207,9 +217,14 @@ public class RapportActivitieActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1001 && resultCode == Activity.RESULT_OK && data != null) {
             try{
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                //swt the color scheme to something less memory consuming
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                //scale the image by factor 2
+                options.inSampleSize = 2;
                 Uri imageUri = data.getData();//Geting uri of the data
                 InputStream imageStream = RapportActivitieActivity.this.getContentResolver().openInputStream(imageUri);//creating an imputstrea
-                Photo photo=new Photo(BitmapFactory.decodeStream(imageStream));
+                Photo photo=new Photo(BitmapFactory.decodeStream(imageStream,null,options));
                 albumPhoto.addPhoto(photo);//decoding the input stream to bitmap
                 photoAddAdapter.notifyDataSetChanged();
             } catch (FileNotFoundException e) {

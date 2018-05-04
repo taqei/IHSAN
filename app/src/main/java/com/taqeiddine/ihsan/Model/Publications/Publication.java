@@ -306,7 +306,7 @@ public class Publication {
                 publication.setTitrepub(titre);
                 return publication;
             }
-            if (s.getInt("child")==0){
+            if (s.getInt("child")==1){
                 publication=new Projet(idpub);
                 publication.setTitrepub(titre);
                 return publication;
