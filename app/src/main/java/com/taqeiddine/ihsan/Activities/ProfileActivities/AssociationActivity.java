@@ -367,12 +367,13 @@ public class AssociationActivity extends AppCompatActivity {
 
     private void initAdr(){
         final Button demande=(Button) findViewById(R.id.association_demanderadr),deja=(Button) findViewById(R.id.association_dejaadr);
-        final ProgressBar progressBar2=(ProgressBar) findViewById(R.id.association_initadr);
+        final ProgressBar progressBar2=(ProgressBar) findViewById(R.id.association_actions_action2_progress);
+        final TextView dejadr=(TextView) findViewById(R.id.association_actions_action2_deja),dema=(TextView) findViewById(R.id.association_actions_action2_adrdem);
+        final ImageView image=(ImageView)findViewById(R.id.association_actions_action2_logo);
 
 
-
-        demande.setVisibility(View.GONE);
-        deja.setVisibility(View.GONE);
+        dema.setVisibility(View.GONE);
+        dejadr.setVisibility(View.GONE);
         progressBar2.setVisibility(View.VISIBLE);
         AdrEtat adrEtat=new AdrEtat(me, association, new Response.Listener<String>() {
             @Override
@@ -387,15 +388,17 @@ public class AssociationActivity extends AppCompatActivity {
                             if(jsonObject.getBoolean("accepte")){
                                 //HERE : il est ADR
                                 progressBar2.setVisibility(View.GONE);
-                                deja.setText("Déja Adhérent ! ");
-                                deja.setVisibility(View.VISIBLE);
+                                dejadr.setText("Déja Adhérent ! ");
+                                dejadr.setVisibility(View.VISIBLE);
+                                image.setVisibility(View.VISIBLE);
                             }else {
                                 progressBar2.setVisibility(View.GONE);
-                                deja.setText("Demandé ! ");
-                                deja.setVisibility(View.VISIBLE);
+                                dejadr.setText("Demandé ! ");
+                                dejadr.setVisibility(View.VISIBLE);
+                                image.setVisibility(View.VISIBLE);
                             }
                         }else{
-                            demande.setOnClickListener(new View.OnClickListener() {
+                            dema.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     Demande demande1=new Demande(me, association, new Response.Listener<String>() {
@@ -409,7 +412,8 @@ public class AssociationActivity extends AppCompatActivity {
                                 }
                             });
                             progressBar2.setVisibility(View.GONE);
-                            demande.setVisibility(View.VISIBLE);
+                            dema.setVisibility(View.VISIBLE);
+                            image.setVisibility(View.VISIBLE);
 
                         }
                     }

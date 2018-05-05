@@ -272,8 +272,8 @@
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/pink700"
                                         android:layout_marginTop="3dp"
-                                        android:text="Activities"
-                                        android:textSize="8sp"
+                                        android:text="Ajouter activitie"
+                                        android:textSize="7sp"
                                         android:id="@+id/association_actions_action02_text"
                                         android:textStyle="bold"/>
                                 </LinearLayout>
@@ -337,7 +337,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/pink700"
-                                        android:text="Parametres"
+                                        android:text="Mes Activities"
                                         android:textSize="8sp"
                                         android:textStyle="bold"
                                         android:id="@+id/myassociation_actions_action05_text"
@@ -384,21 +384,7 @@
                             ></android.support.v7.widget.RecyclerView>
                     </RelativeLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center">
 
-                        <TextView
-                            android:id="@+id/my_association_phone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/pink400"
-                            tools:text="numphone" />
-                    </LinearLayout>
-                </LinearLayout>
 
 
 

@@ -78,9 +78,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="5dp"
-                                android:text="Taqei Iddine"
-                                android:textSize="21sp"
-                                android:textStyle="bold" />
+                               tools:text="Taqei Iddine"
+                                android:textSize="23sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"/>
                         </LinearLayout>
                         <android.support.v7.widget.CardView
                             android:layout_width="250dp"

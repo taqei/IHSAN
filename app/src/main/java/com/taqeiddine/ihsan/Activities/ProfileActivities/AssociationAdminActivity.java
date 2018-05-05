@@ -33,6 +33,7 @@ import com.taqeiddine.ihsan.Activities.Messages.MessagesActivity;
 import com.taqeiddine.ihsan.Activities.PublicationActivities.ProjetActivity;
 import com.taqeiddine.ihsan.Activities.RapportActivities.RapportActivitieActivity;
 import com.taqeiddine.ihsan.Activities.PublicationActivities.SignalerPNActiviy;
+import com.taqeiddine.ihsan.Activities.RapportActivities.RapportViewActivity;
 import com.taqeiddine.ihsan.Adapters.DemandeAdrAdapter;
 import com.taqeiddine.ihsan.Adapters.MyDividerItemDecoration;
 import com.taqeiddine.ihsan.Adapters.ProfileRecyAdapter;
@@ -63,7 +64,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AssociationAdminActivity extends AppCompatActivity {
     de.hdodenhof.circleimageview.CircleImageView photodeprofil;
     ImageView changephotoprofil;
-    TextView name,phone;
+    TextView name;
 
 
     RequestQueue requestQueue;
@@ -93,7 +94,7 @@ public class AssociationAdminActivity extends AppCompatActivity {
         photodeprofil=(CircleImageView) findViewById(R.id.my_association_image);
         changephotoprofil=(ImageView) findViewById(R.id.my_association_changeImage);
         name=(TextView) findViewById(R.id.my_association_Name);
-        phone=(TextView) findViewById(R.id.my_association_phone);
+
 
 
 
@@ -122,7 +123,7 @@ public class AssociationAdminActivity extends AppCompatActivity {
                 try{
                     Association association1=(Association) Profile.fromJsonINFOPROFILE(new JSONObject(s));
                     name.setText(association1.getNomassociation());
-                    phone.setText(association1.getPhone());
+
                     myToolbar.setTitle(association1.getNomassociation());
                     initNBRS(association1.getNbfollowers(),association1.getNbpublications());
                     if (association1.getPhotodeprofil()!=null){
@@ -173,6 +174,7 @@ public class AssociationAdminActivity extends AppCompatActivity {
         GETTHEPUBLICATIONS();
         initListeDesAderents();
         initMessages();
+        initActivitiesAll();
 
 
 
@@ -416,9 +418,22 @@ public class AssociationAdminActivity extends AppCompatActivity {
 
     }
 
-    public void initParams(){
+    public void initActivitiesAll(){
         ImageView imageView=(ImageView) findViewById(R.id.myassociation_actions_action05_logo);
         TextView textView=(TextView) findViewById(R.id.myassociation_actions_action05_text);
+        textView.setClickable(true);imageView.setClickable(true);
+
+        View.OnClickListener onClickListener=new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AssociationAdminActivity.this, RapportViewActivity.class);
+                intent.putExtra("myidutilisateur",chefAssociation.getIdprofile());
+                intent.putExtra("idassociation",chefAssociation.getAssociation().getIdprofile());
+                startActivity(intent);
+            }
+        };
+        imageView.setOnClickListener(onClickListener);
+        textView.setOnClickListener(onClickListener);
     }
 
     private void SHOWDEMANDES() {
