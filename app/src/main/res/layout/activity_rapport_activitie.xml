@@ -84,7 +84,7 @@ android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Id Publication"
+                android:hint="publication"
                 android:textColor="@color/pink"
                 android:editable="false"
                 android:textColorHint="@color/pink" />
@@ -104,7 +104,8 @@ android:background="@color/white"
             android:id="@+id/activitie_act_publier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Publier" />
+            android:text="Publier"
+            android:background="@drawable/registerbtne"/>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

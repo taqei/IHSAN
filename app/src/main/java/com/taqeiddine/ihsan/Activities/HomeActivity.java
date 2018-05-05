@@ -1,6 +1,5 @@
 package com.taqeiddine.ihsan.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.taqeiddine.ihsan.Activities.ProfileActivities.UtilisateurMyActivity;
 import com.taqeiddine.ihsan.Firebase.SharedPrefManager;
 import com.taqeiddine.ihsan.Fragments.MyHome;
 import com.taqeiddine.ihsan.Fragments.MyMessages;
@@ -84,9 +82,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.aa_home_activity);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

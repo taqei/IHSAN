@@ -66,8 +66,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyUtilisateur extends Fragment {
     private TextView nameandlastname;
-    private Button buttonOne,buttonTwo;
-    private CircleImageView photodeprofile;
+    private Button buttonOne,buttonTwo; private CircleImageView photodeprofile;
     private ImageView changePhoto;
 
     private LinearLayout associationLayout;

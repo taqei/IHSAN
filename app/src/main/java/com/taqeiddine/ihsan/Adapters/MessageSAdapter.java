@@ -25,6 +25,7 @@ import com.taqeiddine.ihsan.VOLLEY.Message.MessageByProfil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -115,13 +116,13 @@ public class MessageSAdapter extends RecyclerView.Adapter<MessageSAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView nomprenom;
-        public ImageView photoprofil;
+        public CircleImageView photoprofil;
         public RelativeLayout relativeLayout;
 
         public MyViewHolder(final View view) {
             super(view);
             nomprenom=(TextView) view.findViewById(R.id.messages_nomprenom);
-            photoprofil=(ImageView) view.findViewById(R.id.messages_photoprofil);
+            photoprofil=(CircleImageView) view.findViewById(R.id.my_a_image);
             relativeLayout=(RelativeLayout) view.findViewById(R.id.messages_relativelayout);
         }
     }

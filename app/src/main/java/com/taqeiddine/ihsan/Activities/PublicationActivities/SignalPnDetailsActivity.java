@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -30,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.taqeiddine.ihsan.Adapters.DonAdapter;
@@ -81,9 +85,11 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
 
     private final ArrayList<Besoin> listbesoins = new ArrayList<>();
     private final BesoinViewAdapter besoinViewAdapter = new BesoinViewAdapter(listbesoins);
-
+     Toolbar myToolbar ;
     final Publication publication = new Publication();
     Utilisateur me;
+
+
 
     RequestQueue requestQueue;
 
@@ -91,8 +97,16 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pub_spn_details);
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         //mapView = (MapView) findViewById(R.id.detailspn_localisation);
-        publicateur = (TextView) findViewById(R.id.detailspn_nom_prenom);
+
         date = (TextView) findViewById(R.id.detailspn_date);
         heure = (TextView) findViewById(R.id.detailspn_heure);
         titre = (TextView) findViewById(R.id.detailspn_Titre);
@@ -100,13 +114,42 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
         type = (TextView) findViewById(R.id.detailspn_type);
         numphone = (TextView) findViewById(R.id.detailspn_numphone);
         adresse = (TextView) findViewById(R.id.detailspn_adresse);
-        photoPublicateur = (ImageView) findViewById(R.id.detailspn_photo_profil);
+
         besoins = (RecyclerView) findViewById(R.id.detailspn_recyclerbesoins);
         plus=(ImageView) findViewById(R.id.detailspn_plus);
         images=(RecyclerView) findViewById(R.id.detailspn_recy_photos);
         adresse=(TextView) findViewById(R.id.detailspn_localisation);
+
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.detail_map);
+//        mapFragment.getMapAsync(new OnMapReadyCallback() {
+//            @Override
+//            public void onMapReady(GoogleMap googleMap) {
+//
+//            }
+//        });
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(37.4233438, -122.0728817))
+                        .title("LinkedIn")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(37.4629101,-122.2449094))
+                        .title("Facebook")
+                        .snippet("Facebook HQ: Menlo Park"));
+
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(37.3092293, -122.1136845))
+                        .title("Apple"));
+
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.4233438, -122.0728817), 10));
+            }
+        });
 
         intervenir=(RelativeLayout) findViewById(R.id.detailspn_intervenir);
         intervenir.setClickable(false);
@@ -144,6 +187,7 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
 
     }
 
+
     public void Actualiser(){
         getAPublication getAPublication = new getAPublication(publication, new Response.Listener<String>() {
             @Override
@@ -163,7 +207,6 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
                         type.setText(signalPN.getTypePN());
                         numphone.setText(signalPN.getNumphone());
 
-                        mapFragment.getMapAsync(SignalPnDetailsActivity.this);
 
                         Geocoder geocoder;
                         List<Address> addresses;
@@ -199,17 +242,23 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
 
                         // info profile
                         Profile profile=signalPN.getProfile();
-                        if(profile.getPhotodeprofil()!=null){
-                            Glide.with(SignalPnDetailsActivity.this).load(Help.getURL() + signalPN.getProfile().getPhotodeprofil().getUrl()).into(photoPublicateur);
-                        }
+
                         if(profile instanceof Utilisateur){
-                            publicateur.setText(((Utilisateur) profile).getNom() + "  " + ((Utilisateur) profile).getPrenom());
+
+                            myToolbar.setTitle(((Utilisateur) profile).getNom() + "  " + ((Utilisateur) profile).getPrenom());
                         }
                         if(profile instanceof Association){
-                            publicateur.setText(((Association)profile).getNomassociation());
+
+                            myToolbar.setTitle(((Association)profile).getNomassociation());
                         }
+                        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
 
                         initPlus(me,signalPN);
+
+
 
                         intervenir.setClickable(true);
                         intervenir.setOnClickListener(new View.OnClickListener() {

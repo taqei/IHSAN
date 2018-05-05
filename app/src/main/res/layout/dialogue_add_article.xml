@@ -8,20 +8,37 @@
         android:background="@color/pink50"
         android:padding="10dp"
         android:gravity="center">
-        <AutoCompleteTextView
+
+        <android.support.design.widget.TextInputLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Article"
-            android:textColor="@color/pink400"
-            android:textColorHint="@color/pink400"
-            android:id="@+id/dialogue_add_article_nom"/>
-        <AutoCompleteTextView
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Article"
+                android:textColor="@color/pink400"
+                android:textColorHint="@color/pink400"
+                android:id="@+id/dialogue_add_article_nom"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Unité article"
-            android:textColor="@color/pink400"
-            android:textColorHint="@color/pink400"
-            android:id="@+id/dialogue_add_article_unite"/>
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Unité article"
+                android:textColor="@color/pink400"
+                android:textColorHint="@color/pink400"
+                android:id="@+id/dialogue_add_article_unite"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
 
             <GridView
                 android:layout_width="150dp"

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -83,6 +84,10 @@ public class UtilisateurMyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_utilisateur_my);
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         nameandlastname =(TextView) findViewById(R.id.myprofileName);
 
@@ -113,6 +118,7 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                     if (jsonObject.getBoolean("success")){
                         final Utilisateur utilisateur=(Utilisateur) Profile.fromJsonINFOPROFILE(jsonObject);
                         nameandlastname.setText(utilisateur.getNom()+"  "+utilisateur.getPrenom());
+                        myToolbar.setTitle(utilisateur.getNom()+"  "+utilisateur.getPrenom());
                         initRatingBar(utilisateur.getConfiance());
 
                         initNBRS(utilisateur.getNbfollowers(),utilisateur.getNbfollowee(),utilisateur.getNbpublications());

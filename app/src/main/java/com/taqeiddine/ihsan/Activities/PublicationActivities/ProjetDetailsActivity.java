@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -66,7 +67,7 @@ public class ProjetDetailsActivity extends AppCompatActivity {
     private ImageView photoPublicateur,plus;
     private RecyclerView besoins,images;
 
-
+    Toolbar myToolbar ;
     private RelativeLayout intervenir;
 
 
@@ -80,15 +81,21 @@ public class ProjetDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_pub_projet_details);
-        publicateur = (TextView) findViewById(R.id.detailspn_nom_prenom);
+
         date = (TextView) findViewById(R.id.detailspn_date);
         heure = (TextView) findViewById(R.id.detailspn_heure);
         titre = (TextView) findViewById(R.id.detailspn_Titre);
         descri = (TextView) findViewById(R.id.detailspn_desctip);
         numphone = (TextView) findViewById(R.id.detailspn_numphone);
         adresse = (TextView) findViewById(R.id.detailspn_adresse);
-        photoPublicateur = (ImageView) findViewById(R.id.detailspn_photo_profil);
+
         besoins = (RecyclerView) findViewById(R.id.detailspn_recyclerbesoins);
         plus=(ImageView) findViewById(R.id.detailspn_plus);
         images=(RecyclerView) findViewById(R.id.detailspn_recy_photos);
@@ -190,15 +197,14 @@ public class ProjetDetailsActivity extends AppCompatActivity {
                         }
 
 
-                        // info profile
                         Profile profile=projet.getAssociation();
-                        if(profile.getPhotodeprofil()!=null){
-                            Glide.with(ProjetDetailsActivity.this).load(Help.getURL() + profile.getPhotodeprofil().getUrl()).into(photoPublicateur);
-                        }
+
 
                         if(profile instanceof Association){
-                            publicateur.setText(((Association)profile).getNomassociation());
+
+                            myToolbar.setTitle(((Association)profile).getNomassociation());
                         }
+
 
                         initPlus(me,projet);
 

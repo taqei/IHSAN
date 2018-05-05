@@ -407,6 +407,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:visibility="visible" />
+            </LinearLayout>
         </RelativeLayout>
 
 

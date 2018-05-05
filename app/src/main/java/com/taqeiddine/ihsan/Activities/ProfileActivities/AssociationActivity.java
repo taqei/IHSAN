@@ -87,7 +87,7 @@ public class AssociationActivity extends AppCompatActivity {
         photodeprofil=(CircleImageView) findViewById(R.id.association_image);
         name=(TextView) findViewById(R.id.association_Name);
 
-        messages=(Button) findViewById(R.id.association_BtnTwo);
+
 
         progressBar=(ProgressBar) findViewById(R.id.association_progress);
         nestedScrollView=(NestedScrollView) findViewById(R.id.scroll_assoc);
@@ -366,7 +366,7 @@ public class AssociationActivity extends AppCompatActivity {
     }
 
     private void initAdr(){
-        final Button demande=(Button) findViewById(R.id.association_demanderadr),deja=(Button) findViewById(R.id.association_dejaadr);
+
         final ProgressBar progressBar2=(ProgressBar) findViewById(R.id.association_actions_action2_progress);
         final TextView dejadr=(TextView) findViewById(R.id.association_actions_action2_deja),dema=(TextView) findViewById(R.id.association_actions_action2_adrdem);
         final ImageView image=(ImageView)findViewById(R.id.association_actions_action2_logo);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -34,13 +35,11 @@ import org.json.JSONObject;
 
 import java.util.LinkedList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageActivity extends AppCompatActivity {
     NestedScrollView nestedScrollView;
     RecyclerView recyclerView;
-    CircleImageView photodeprofile;
-    TextView nomprenom;
+
     ProgressBar progressBar;
     RequestQueue requestQueue;
     ImageView sendmessage;
@@ -58,12 +57,18 @@ public class MessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         me=new Profile(getIntent().getExtras().getString("myidprofil"));
         other=new Profile(getIntent().getExtras().getString("otheridprofil"));
         messageAdapter.setMe(me);
         requestQueue = Volley.newRequestQueue(this);
-        nomprenom=(TextView) findViewById(R.id.message_nomprenom);
-        photodeprofile=(CircleImageView) findViewById(R.id.message_photoprofil);
+
         progressBar=(ProgressBar) findViewById(R.id.message_progress);
         themessage=(EditText) findViewById(R.id.message_message);
         //send a message
@@ -108,17 +113,13 @@ public class MessageActivity extends AppCompatActivity {
                         other= Profile.fromJsonINFOPROFILELITE(jsonObject);
                         if (other instanceof Utilisateur){
                             Utilisateur utilisateur=(Utilisateur) other;
-                            nomprenom.setText(utilisateur.getNom()+"  "+utilisateur.getPrenom());
-                            if (utilisateur.getPhotodeprofil()!=null){
-                                Glide.with(MessageActivity.this).load(Help.getMedia()+utilisateur.getPhotodeprofil().getUrl()).into(photodeprofile);
-                            }
+                            myToolbar.setTitle(utilisateur.getNom()+"  "+utilisateur.getPrenom());
+
                         }
                         if(other instanceof Association){
                             Association asso=(Association) other;
-                            nomprenom.setText(asso.getNomassociation());
-                            if (asso.getPhotodeprofil()!=null){
-                                Glide.with(MessageActivity.this).load(Help.getMedia()+asso.getPhotodeprofil().getUrl()).into(photodeprofile);
-                            }
+                            myToolbar.setTitle(asso.getNomassociation());
+
                         }
 
 

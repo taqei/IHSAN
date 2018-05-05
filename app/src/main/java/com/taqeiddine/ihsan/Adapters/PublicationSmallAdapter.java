@@ -21,7 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import de.hdodenhof.circleimageview.CircleImageView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.bumptech.glide.Glide;
@@ -512,14 +512,14 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
 
 
     public class PublicationHolder extends  RecyclerView.ViewHolder{
-        ImageView photoprofil;
+        CircleImageView photoprofil;
         TextView nomprenom, date, heure, titre, descri,adressepub;
         RecyclerView besoins;
         ImageView plus;
 
         public PublicationHolder(View itemView) {
             super(itemView);
-            photoprofil = (ImageView) itemView.findViewById(R.id.pub__photo_profil);
+            photoprofil = (CircleImageView) itemView.findViewById(R.id.pub__photo_profil);
             nomprenom = (TextView) itemView.findViewById(R.id.pub__nom_prenom);
             date = (TextView) itemView.findViewById(R.id.pub__date);
             heure = (TextView) itemView.findViewById(R.id.pub__heure);

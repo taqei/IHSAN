@@ -24,6 +24,8 @@
         android:text="Ajouter Un Article"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/registerbtne"
         android:id="@+id/dialogue_search_addarticle"
         />
 </LinearLayout>

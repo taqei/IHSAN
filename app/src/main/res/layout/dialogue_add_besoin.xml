@@ -11,6 +11,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Nom Article"
+            android:editable="false"
             android:id="@+id/dialogue_nomarticle"
             android:clickable="true"/>
         <TextView
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:id="@+id/dialogue_urlicone"/>
+
 
         <EditText
             android:layout_width="wrap_content"

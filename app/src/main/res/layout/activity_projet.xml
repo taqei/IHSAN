@@ -1,77 +1,134 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context="com.taqeiddine.ihsan.Activities.PublicationActivities.SignalerPNActiviy">
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
+        <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pink400"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <!-- Toolbar is the actual app bar with text and the action items -->
+
+    </android.support.design.widget.AppBarLayout>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
+
             android:orientation="vertical"
-            android:background="@color/pink50"
+            android:background="@color/white"
             android:padding="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajouter un evenement de collecte"
-                android:textColor="#FFF"
-                android:textSize="20dp"
-                android:background="@drawable/gradientpink"
-                android:layout_marginBottom="20dp"/>
-            <MultiAutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/publierTitre"
-                android:hint="titre de votre publication "
-                android:textColorHint="@color/pink"
-                android:textColor="@color/pink"
-                android:layout_marginBottom="10dp"/>
 
-            <MultiAutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Description"
-                android:textColorHint="@color/pink"
-                android:textColor="@color/pink"
+            <android.support.design.widget.TextInputLayout
 
-                android:id="@+id/publierDescr"
-                android:layout_marginBottom="10dp"/>
-
-            <MultiAutoCompleteTextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Num Phone"
-                android:textColorHint="@color/pink"
-                android:textColor="@color/pink"
-                android:id="@+id/publierPhone"
-                android:layout_marginBottom="10dp"
-                />
-            <MultiAutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Lieu de collecte"
-                android:textColorHint="@color/pink"
-                android:textColor="@color/pink"
+                android:layout_height="wrap_content">
 
-                android:id="@+id/publierCollecteLieu"
-                android:layout_marginBottom="10dp"/>
-            <MultiAutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Destination"
-                android:textColorHint="@color/pink"
-                android:textColor="@color/pink"
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/publierTitre"
+                    android:hint="titre de votre publication "
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"
+                    android:layout_marginBottom="10dp"/>
 
-                android:id="@+id/publierDestination"
-                android:layout_marginBottom="10dp"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"
+
+                    android:id="@+id/publierDescr"
+                    android:layout_marginBottom="10dp"/>
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Num Phone"
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"
+                    android:id="@+id/publierPhone"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Lieu de collecte"
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"
+                    android:editable="false"
+                    android:id="@+id/publierCollecteLieu"
+                    android:layout_marginBottom="10dp"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Destination"
+                    android:textColorHint="@color/pink"
+                    android:textColor="@color/pink"
+                    android:editable="false"
+                    android:id="@+id/publierDestination"
+                    android:layout_marginBottom="10dp"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+
+
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,15 +145,7 @@
             </android.support.v7.widget.RecyclerView>
 
             <!-- Date debut collecte / date fin -->
-            <MultiAutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Localisation"
-                android:textColorHint="@color/pink"
-                android:textColor="@color/pink"
 
-                android:id="@+id/publierLocalisation"
-                android:layout_marginBottom="10dp"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,6 +160,7 @@
                     android:inputType="date"
                     android:textColorHint="@color/pink"
                     android:hint="Debut de Collecte"
+                    android:editable="false"
                     android:textColor="@color/pink"
                     android:layout_marginRight="30dp"/>
                 <EditText
@@ -120,8 +170,11 @@
                     android:layout_weight="1"
                     android:hint="Fin de Collecte"
                     android:inputType="date"
+                    android:editable="false"
                     android:textColorHint="@color/pink"
                     android:textColor="@color/pink"/>
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -137,6 +190,7 @@
                     android:inputType="time"
                     android:textColorHint="@color/pink"
                     android:hint="Open"
+                    android:editable="false"
                     android:textColor="@color/pink"
                     android:layout_marginRight="30dp"/>
                 <EditText
@@ -146,8 +200,10 @@
                     android:layout_weight="1"
                     android:hint="Close"
                     android:inputType="time"
+                    android:editable="false"
                     android:textColorHint="@color/pink"
                     android:textColor="@color/pink"/>
+
             </LinearLayout>
 
 
@@ -156,6 +212,9 @@
                 android:layout_height="wrap_content"
                 android:text="Publier"
                 android:onClick="publier"
+                android:background="@drawable/registerbtne"
+                android:layout_marginBottom="50dp"
+
                 />
         </LinearLayout>
     </ScrollView>
@@ -163,4 +222,4 @@
 
 
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
