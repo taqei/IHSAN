@@ -72,7 +72,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class SignalPnDetailsActivity extends AppCompatActivity  {
     //private MapView mapView;
     private TextView publicateur, date, heure, titre, descri, type, numphone, adresse;
     private ImageView photoPublicateur,plus;
@@ -113,7 +113,7 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
         descri = (TextView) findViewById(R.id.detailspn_desctip);
         type = (TextView) findViewById(R.id.detailspn_type);
         numphone = (TextView) findViewById(R.id.detailspn_numphone);
-        adresse = (TextView) findViewById(R.id.detailspn_adresse);
+
 
         besoins = (RecyclerView) findViewById(R.id.detailspn_recyclerbesoins);
         plus=(ImageView) findViewById(R.id.detailspn_plus);
@@ -128,28 +128,7 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
 //
 //            }
 //        });
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(37.4233438, -122.0728817))
-                        .title("LinkedIn")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(37.4629101,-122.2449094))
-                        .title("Facebook")
-                        .snippet("Facebook HQ: Menlo Park"));
-
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(37.3092293, -122.1136845))
-                        .title("Apple"));
-
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.4233438, -122.0728817), 10));
-            }
-        });
 
         intervenir=(RelativeLayout) findViewById(R.id.detailspn_intervenir);
         intervenir.setClickable(false);
@@ -215,12 +194,28 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
                             if(publication.getAdressepublication()!=null){
                                 addresses = geocoder.getFromLocation(publication.getAdressepublication().latitude, publication.getAdressepublication().longitude, 1);
                                 adresse.setText(addresses.get(0).getAddressLine(0));
+                                mapFragment.getMapAsync(new OnMapReadyCallback() {
+                                    @Override
+                                    public void onMapReady(GoogleMap googleMap) {
+                                        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+
+                                        googleMap.addMarker(new MarkerOptions()
+                                                .position(publication.getAdressepublication())
+                                                .title("Here")
+                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+                                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(publication.getAdressepublication(), 10));
+                                    }
+                                });
                             }
 
                         } catch (IOException e) {
+
                             e.printStackTrace();
                             adresse.setText("Erreuuure");
                         }
+
+
 
                         listbesoins.removeAll(listbesoins);
                         listbesoins.addAll(signalPN.getListeDesBesoins());
@@ -513,13 +508,4 @@ public class SignalPnDetailsActivity extends AppCompatActivity implements OnMapR
         });
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-    }
 }

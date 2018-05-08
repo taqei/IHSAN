@@ -28,6 +28,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.taqeiddine.ihsan.Adapters.BesoinViewAdapter;
 import com.taqeiddine.ihsan.Adapters.DonAdapter;
 import com.taqeiddine.ihsan.Adapters.InstaAdapter;
@@ -66,7 +72,7 @@ public class ProjetDetailsActivity extends AppCompatActivity {
     private TextView publicateur, date, heure, titre, descri, numphone, adresse,destination,datedebut,datefin,hopen,hclose;
     private ImageView photoPublicateur,plus;
     private RecyclerView besoins,images;
-
+    SupportMapFragment mapFragment;
     Toolbar myToolbar ;
     private RelativeLayout intervenir;
 
@@ -89,12 +95,15 @@ public class ProjetDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_pub_projet_details);
 
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.detail_map);
+
         date = (TextView) findViewById(R.id.detailspn_date);
         heure = (TextView) findViewById(R.id.detailspn_heure);
         titre = (TextView) findViewById(R.id.detailspn_Titre);
         descri = (TextView) findViewById(R.id.detailspn_desctip);
         numphone = (TextView) findViewById(R.id.detailspn_numphone);
-        adresse = (TextView) findViewById(R.id.detailspn_adresse);
+
 
         besoins = (RecyclerView) findViewById(R.id.detailspn_recyclerbesoins);
         plus=(ImageView) findViewById(R.id.detailspn_plus);
@@ -162,10 +171,24 @@ public class ProjetDetailsActivity extends AppCompatActivity {
                             if(publication.getAdressepublication()!=null){
                                 addresses = geocoder.getFromLocation(publication.getAdressepublication().latitude, publication.getAdressepublication().longitude, 1);
                                 adresse.setText(addresses.get(0).getAddressLine(0));
+                                mapFragment.getMapAsync(new OnMapReadyCallback() {
+                                    @Override
+                                    public void onMapReady(GoogleMap googleMap) {
+                                        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+
+                                        googleMap.addMarker(new MarkerOptions()
+                                                .position(publication.getAdressepublication())
+                                                .title("Lieu de collecte")
+                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+                                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(publication.getAdressepublication(), 10));
+                                    }
+                                });
                             }
 
                         } catch (IOException e) {
                             e.printStackTrace();
+
                             adresse.setText("Adresse non disponible");
                         }
                         try {

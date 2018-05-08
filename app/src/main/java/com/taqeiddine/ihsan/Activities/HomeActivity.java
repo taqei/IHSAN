@@ -88,6 +88,8 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
+
         requestQueue=new Volley().newRequestQueue(this);
 
         Utilisateur utilisateur=new Utilisateur(getIntent().getStringExtra("myidutilisateur"));
