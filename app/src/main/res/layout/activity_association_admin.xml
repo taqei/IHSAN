@@ -218,7 +218,7 @@
                                     <ImageView
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
-                                        android:background="@color/pink700"
+                                        android:src="@drawable/t_spn"
                                         android:id="@+id/myassociation_actions_action00_logo"
                                         />
                                     <TextView
@@ -241,7 +241,7 @@
                                     <ImageView
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
-                                        android:background="@color/pink700"
+                                        android:src="@drawable/t_prjct"
                                         android:id="@+id/myassociation_actions_action01_logo"
                                         />
                                     <TextView
@@ -264,7 +264,7 @@
                                     <ImageView
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
-                                        android:background="@color/pink700"
+                                        android:src="@drawable/t_add"
                                         android:id="@+id/myassociation_actions_action02_logo"
                                         />
                                     <TextView
@@ -287,7 +287,7 @@
                                     <ImageView
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
-                                        android:background="@color/pink700"
+                                        android:src="@drawable/t_msg"
                                         android:id="@+id/myassociation_actions_action03_logo" />
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -309,7 +309,7 @@
                                     <ImageView
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
-                                        android:background="@color/pink700"
+                                        android:src="@drawable/t_adr"
                                         android:id="@+id/myassociation_actions_action04_logo" />
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -331,7 +331,7 @@
                                     <ImageView
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
-                                        android:background="@color/pink700"
+                                        android:src="@drawable/t_list"
                                         android:id="@+id/myassociation_actions_action05_logo" />
                                     <TextView
                                         android:layout_width="wrap_content"

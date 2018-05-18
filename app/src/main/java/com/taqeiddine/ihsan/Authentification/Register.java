@@ -2,6 +2,7 @@ package com.taqeiddine.ihsan.Authentification;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaSync;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,8 +77,8 @@ public class Register extends AppCompatActivity {
                            // finish();
                         } else{
                             if (new JSONObject(response).getString("status").equals("email")){
-                                Toast.makeText(Register.this, "E-mail éxiste déja !", Toast.LENGTH_SHORT).show();
-                                email.setError("E-mail éxiste déja");
+                                Toast.makeText(Register.this, "UserName éxiste déja !", Toast.LENGTH_SHORT).show();
+                                email.setError("UserName éxiste déja");
                             }
                             Toast.makeText(Register.this, "Something Has Happened. Please Try Again!", Toast.LENGTH_SHORT).show();
                     }} catch (JSONException e) {
@@ -102,14 +103,9 @@ public class Register extends AppCompatActivity {
 
     private boolean validateMail(String string){
         if (string.equals("")){
-            email.setError("e-mail obli");
+            email.setError("username obli");
             return false;}
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-        if (string.matches(emailPattern))
-        {
-            email.setError("e-mail invalide");
-            return false;}
 
       return true;
     }

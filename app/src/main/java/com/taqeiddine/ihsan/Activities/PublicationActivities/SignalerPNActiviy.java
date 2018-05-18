@@ -441,6 +441,7 @@ public class SignalerPNActiviy extends AppCompatActivity {
                 public void onResponse(String s) {
                     Log.i("taq", s);
                     progressDialog.dismiss();
+                    finish();
                 }
             }, new Response.ErrorListener() {
                 @Override

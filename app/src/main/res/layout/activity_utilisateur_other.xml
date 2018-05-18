@@ -202,6 +202,7 @@
                                 android:paddingLeft="20dp"
                                 android:paddingRight="20dp"
                                 android:text="S'abonner"
+                                android:textColor="@color/white"
                                 android:textAllCaps="false"
                                 android:textSize="10sp"
                                 android:visibility="gone" />
@@ -214,6 +215,7 @@
                                 android:paddingLeft="20dp"
                                 android:paddingRight="20dp"
                                 android:text="Se Désabonner"
+                                android:textColor="@color/white"
                                 android:textAllCaps="false"
                                 android:textSize="10sp"
                                 android:visibility="gone" />
@@ -237,6 +239,7 @@
                             android:paddingLeft="20dp"
                             android:paddingRight="20dp"
                             android:text="Envoyer un message"
+                            android:textColor="@color/white"
                             android:textAllCaps="false"
                             android:textSize="9sp"
                             />
@@ -277,6 +280,7 @@
                         android:layout_height="90dp"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
+                        android:visibility="gone"
                         android:id="@+id/utilisateur_adr_list_relative"
                         >
 

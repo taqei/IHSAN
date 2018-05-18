@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:padding="7dp"
             android:id="@+id/messageme_text"
+            android:textColor="@color/white"
             tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
     </RelativeLayout>
     <TextView

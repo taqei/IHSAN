@@ -116,15 +116,7 @@ public class AssociationActivity extends AppCompatActivity {
         });
         requestQueue.add(isChefAssociation);
 
-        messages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(AssociationActivity.this,MessageActivity.class);
-                intent.putExtra("myidprofil",me.getIdprofile());
-                intent.putExtra("otheridprofil",association.getIdprofile());
-                startActivity(intent);
-            }
-        });
+
 
         initfollowing();
 

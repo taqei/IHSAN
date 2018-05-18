@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Valider"
+        android:textColor="@color/white"
         android:background="@drawable/registerbtne"
         android:id="@+id/dialogue_signaler_valider"
         android:layout_marginTop="20dp"/>

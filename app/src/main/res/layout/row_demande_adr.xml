@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
     android:layout_height="60dp"
-    android:background="@color/pink50">
+>
     <LinearLayout
         android:layout_width="220dp"
         android:layout_height="match_parent"
@@ -53,7 +53,7 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="#000"
+            android:src="@drawable/t_ref"
             android:layout_marginRight="10dp"
             android:id="@+id/row_demande_adr_refuse"
             android:clickable="true"/>
@@ -61,7 +61,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:id="@+id/row_demande_adr_accepte"
-            android:background="@color/pink700"
+            android:src="@drawable/t_acc"
             android:clickable="true"/>
 
     </LinearLayout>

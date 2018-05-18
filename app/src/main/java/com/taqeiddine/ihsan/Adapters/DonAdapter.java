@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.taqeiddine.ihsan.Help;
 import com.taqeiddine.ihsan.Model.Don;
 import com.taqeiddine.ihsan.Model.Intervention;
 import com.taqeiddine.ihsan.R;
@@ -25,6 +27,7 @@ public class DonAdapter extends RecyclerView.Adapter<DonAdapter.MyViewHolder> {
 
     ArrayList<Don> dons;
     ArrayList<Don> retour;
+    private View thisview;
 
 
     DonAdapter.MyViewHolder myholder;
@@ -40,6 +43,7 @@ public class DonAdapter extends RecyclerView.Adapter<DonAdapter.MyViewHolder> {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_don, parent, false);
         myholder = new DonAdapter.MyViewHolder(itemView);
+        thisview=itemView;
         return myholder;
     }
 
@@ -47,6 +51,9 @@ public class DonAdapter extends RecyclerView.Adapter<DonAdapter.MyViewHolder> {
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Don don =dons.get(position);
         holder.nomarticle.setText(don.getBesoin().getArticle().getNomArticle());
+        if (don.getBesoin().getArticle().getIcone() != null) {
+            Glide.with(thisview.getContext()).load(Help.getMedia()+don.getBesoin().getArticle().getIcone().getUrl()).into(holder.icone);
+        }
         holder.qtetotal.setText(don.getBesoin().getQte()+" "+don.getBesoin().getArticle().getUniteArticle());
         holder.qtearticle.setText(don.getBesoin().getQterecu()+" /");
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {

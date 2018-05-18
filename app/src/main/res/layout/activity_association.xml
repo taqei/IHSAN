@@ -215,14 +215,14 @@
                                 android:id="@+id/association_actions_action0_logo"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:background="@color/pink700"
+                                android:src="@drawable/t_follow"
                                 android:visibility="gone" />
 
                             <ImageView
                                 android:id="@+id/association_actions_action0_logo1"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:background="@color/pink700"
+                                android:src="@drawable/t_disfollow"
                                 android:visibility="gone" />
 
                             <TextView
@@ -258,7 +258,8 @@
                                 android:id="@+id/association_actions_action1_logo"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:background="@color/pink700" />
+                                android:src="@drawable/t_msg"
+                                 />
 
                             <TextView
                                 android:id="@+id/association_actions_action1_sendmsg"
@@ -286,7 +287,7 @@
                                 android:id="@+id/association_actions_action2_logo"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:background="@color/pink700"
+                                android:src="@drawable/t_dejaadr"
                                 android:visibility="gone" />
 
                             <TextView
@@ -322,7 +323,7 @@
                                 android:id="@+id/association_actions_action3_logo"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:background="@color/pink700" />
+                                android:src="@drawable/t_actii" />
 
                             <TextView
                                 android:id="@+id/association_actions_action3_text"

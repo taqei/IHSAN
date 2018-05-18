@@ -460,6 +460,7 @@ public class ProjetActivity extends AppCompatActivity {
                 public void onResponse(String s) {
                     Log.i("taqproject", s);
                     progressDialog.dismiss();
+                    finish();
                 }
             }, new Response.ErrorListener() {
                 @Override
