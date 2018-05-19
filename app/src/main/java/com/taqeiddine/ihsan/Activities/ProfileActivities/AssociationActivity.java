@@ -129,8 +129,8 @@ public class AssociationActivity extends AppCompatActivity {
                     name.setText(association1.getNomassociation());
                     myToolbar.setTitle(association1.getNomassociation());
                     initNBRS(association1.getNbfollowers(),association1.getNbpublications());
-                    if (association.getPhotodeprofil()!=null){
-                        Glide.with(AssociationActivity.this).load(Help.getMedia()+association.getPhotodeprofil().getUrl()).into(photodeprofil);
+                    if (association1.getPhotodeprofil()!=null){
+                        Glide.with(AssociationActivity.this).load(Help.getMedia()+association1.getPhotodeprofil().getUrl()).into(photodeprofil);
                     }
 
                 }catch(JSONException e){

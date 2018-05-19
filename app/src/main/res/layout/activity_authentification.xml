@@ -65,21 +65,7 @@
             android:inputType="textPassword"
             android:id="@+id/userPasswordAuth"
             android:layout_marginBottom="2dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:text="Mot de passe oublié ?"
-            android:textAllCaps="false"
-            android:textSize="11sp"
-            android:textStyle="normal"
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="50dp"

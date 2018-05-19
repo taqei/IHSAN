@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.taqeiddine.ihsan.Help;
 import com.taqeiddine.ihsan.Model.Don;
 import com.taqeiddine.ihsan.Model.Intervention;
 import com.taqeiddine.ihsan.Model.Publications.Publication;
@@ -101,7 +103,7 @@ public class PubsInterventionsAdapter extends BaseExpandableListAdapter {
         //Switch switche=(Switch) convertView.findViewById(R.id.row_interventiondetail_switch);
 
         nom.setText(intervention.getUtilisateur().getNom()+"  "+intervention.getUtilisateur().getPrenom());
-        date.setText("hhhh");
+        date.setText("");
         if(intervention.isInterventionvalidee())
             etat.setText("Approuvée");
         else
@@ -122,6 +124,10 @@ public class PubsInterventionsAdapter extends BaseExpandableListAdapter {
         TextView nomarticle=(TextView) convertView.findViewById(R.id.row_interventiondon_nom),qte=(TextView) convertView.findViewById(R.id.row_interventiondon_qte);
         nomarticle.setText(don.getBesoin().getArticle().getNomArticle());
         qte.setText(don.getQte()+" "+don.getBesoin().getArticle().getUniteArticle());
+        iconarticle=(ImageView) convertView.findViewById(R.id.row_interventiondon_icon);
+        if (don.getBesoin().getArticle().getIcone()!= null) {
+            Glide.with(activity).load(Help.getMedia()+don.getBesoin().getArticle().getIcone().getUrl()).into(iconarticle);
+        }
         return convertView;
     }
 

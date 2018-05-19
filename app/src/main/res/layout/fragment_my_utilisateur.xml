@@ -272,7 +272,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             tools:text="taki taki"
-                            android:textColor="@color/pink"
+                            android:textColor="@color/white"
                             android:id="@+id/profile_my_myasso"/>
                     </LinearLayout>
                 </RelativeLayout>

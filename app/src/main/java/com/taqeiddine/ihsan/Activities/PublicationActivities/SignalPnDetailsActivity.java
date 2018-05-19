@@ -202,7 +202,7 @@ public class SignalPnDetailsActivity extends AppCompatActivity  {
                                         googleMap.addMarker(new MarkerOptions()
                                                 .position(publication.getAdressepublication())
                                                 .title("Here")
-                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
 
                                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(publication.getAdressepublication(), 10));
                                     }

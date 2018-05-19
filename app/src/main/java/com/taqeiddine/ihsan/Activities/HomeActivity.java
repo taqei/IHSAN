@@ -93,15 +93,16 @@ public class HomeActivity extends AppCompatActivity {
         requestQueue=new Volley().newRequestQueue(this);
 
         Utilisateur utilisateur=new Utilisateur(getIntent().getStringExtra("myidutilisateur"));
-        Log.i("khourii",SharedPrefManager.getInstance(this).getDeviceToken());
-        Log.i("khourii",SharedPrefManager.getInstance(this).getDeviceToken());
-        RegisterToken registerToken=new RegisterToken(utilisateur, SharedPrefManager.getInstance(this).getDeviceToken(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String s) {
+        if(SharedPrefManager.getInstance(this).getDeviceToken()!=null){
+            RegisterToken registerToken=new RegisterToken(utilisateur, SharedPrefManager.getInstance(this).getDeviceToken(), new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
 
-            }
-        });
-        requestQueue.add(registerToken);
+                }
+            });
+            requestQueue.add(registerToken);
+        }
+
 
     }
 
