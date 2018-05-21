@@ -205,7 +205,7 @@ public class UtilisateurMyActivity extends AppCompatActivity {
     }
 
     private void GETTHEPUBLICATIONS(){
-        getSmallPublication getSmallPublication=new getSmallPublication(currentpubs,me,new Response.Listener<String>() {
+        getSmallPublication getSmallPublication=new getSmallPublication(currentpubs,me,null,new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
 

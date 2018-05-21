@@ -107,7 +107,7 @@ public class MyHome extends Fragment {
 
                 if (distanceToEnd == 0 && !allPubs) {
                     progressBar.setVisibility(View.VISIBLE);
-                    GETTHEPUBLICATIONS();
+                    GETTHEPUBLICATIONS(me);
                 }
             }
         });
@@ -122,7 +122,7 @@ public class MyHome extends Fragment {
                         me=chefAssociation;
                     }
                     publicationSmallAdapter.setMe(me);
-                    GETTHEPUBLICATIONS();
+                    GETTHEPUBLICATIONS(me);
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -161,8 +161,8 @@ public class MyHome extends Fragment {
      *
      */
 
-    private void GETTHEPUBLICATIONS(){
-        getSmallPublication getSmallPublication=new getSmallPublication(currentpubs,null,new Response.Listener<String>() {
+    private void GETTHEPUBLICATIONS(Utilisateur my){
+        getSmallPublication getSmallPublication=new getSmallPublication(currentpubs,null,my,new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
 

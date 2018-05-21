@@ -20,11 +20,14 @@ public class getSmallPublication extends StringRequest {
     private static final String URL = Help.getURL() + "apipublication/litepubs";
     private ArrayList<String> idpublications;
     private Map<String, String> parameters;
-    public getSmallPublication(ArrayList<String> idpublications, Profile pubsofprofile,Response.Listener<String> listener, Response.ErrorListener errorListener) {
+    public getSmallPublication(ArrayList<String> idpublications, Profile pubsofprofile,Utilisateur me,Response.Listener<String> listener, Response.ErrorListener errorListener) {
         super(Method.POST, URL, listener, errorListener);
         this.idpublications=idpublications;
         parameters = new HashMap<>();
-        parameters.put("idutilisateur", "taqii");
+        if(me!=null){
+            parameters.put("myid", me.getIdprofile());
+        }
+
         parameters.put("current_pubs", Publication.listedesPubtoJson(idpublications).toString());
         if(pubsofprofile!=null){
             parameters.put("pubsofprofil", pubsofprofile.getIdprofile());
