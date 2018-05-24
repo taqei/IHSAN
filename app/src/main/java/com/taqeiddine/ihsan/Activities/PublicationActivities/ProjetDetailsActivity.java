@@ -88,13 +88,15 @@ public class ProjetDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 
+
+
+        setContentView(R.layout.activity_pub_projet_details);
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        setContentView(R.layout.activity_pub_projet_details);
-
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.detail_map);
 
@@ -163,7 +165,8 @@ public class ProjetDetailsActivity extends AppCompatActivity {
                         datefin.setText(Help.getLaDate().format(projet.getDatefincollecte()));
                         hopen.setText(Help.getLHeure().format(projet.getHeureopen()));
                         hclose.setText(Help.getLHeure().format(projet.getHeureclose()));
-
+                        if(publication.isPubfinalisee())
+                            intervenir.setVisibility(View.INVISIBLE);
                         Geocoder geocoder;
                         List<Address> addresses;
                         geocoder = new Geocoder(ProjetDetailsActivity.this, Locale.getDefault());
@@ -264,6 +267,7 @@ public class ProjetDetailsActivity extends AppCompatActivity {
                                         }, new Response.ErrorListener() {
                                             @Override
                                             public void onErrorResponse(VolleyError volleyError) {
+                                                Log.i("ISIL", volleyError.toString());
                                             }
                                         });
                                         requestQueue.add(insertIntervention);

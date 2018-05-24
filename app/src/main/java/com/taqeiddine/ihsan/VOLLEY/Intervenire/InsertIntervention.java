@@ -17,7 +17,7 @@ public class InsertIntervention extends StringRequest {
     private Map<String, String> parameters;
 
     public InsertIntervention(Intervention intervention, Response.Listener<String> listener, Response.ErrorListener errorListener) {
-        super(Request.Method.POST, URL, listener, null);
+        super(Request.Method.POST, URL, listener, errorListener);
         parameters = new HashMap<>();
         parameters.put("idutilisateur",intervention.getUtilisateur().getIdprofile());
         parameters.put("idpublication",intervention.getPublication().getIdpub());

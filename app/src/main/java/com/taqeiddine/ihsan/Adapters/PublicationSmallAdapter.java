@@ -91,6 +91,18 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
                 thisview = itemView;
                 return (new ProjetHolder(itemView));
             }
+            case 2:{
+                View itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.row_pub_prenec_f,parent, false);
+                thisview = itemView;
+                return (new SPNHolderF(itemView));
+            }
+            case 3:{
+                View itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.row_pub_projet_f,parent, false);
+                thisview = itemView;
+                return (new ProjetHolderF(itemView));
+            }
         }
         return null;
     }
@@ -131,106 +143,101 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
             e.printStackTrace();
         }
 
+        if (viewholder.getItemViewType()==0 || viewholder.getItemViewType()==2){
+            final SPNHolder holder=(SPNHolder) viewholder;
+            SignalPN signalPn=(SignalPN) publication;
 
-        switch (viewholder.getItemViewType()){
-            case 0:{
-                final SPNHolder holder=(SPNHolder) viewholder;
-                SignalPN signalPn=(SignalPN) publication;
-
-                Profile u=signalPn.getProfile();
-                if (u.getPhotodeprofil() != null) {
-                    Glide.with(thisview.getContext()).load(Help.getMedia()+signalPn.getProfile().getPhotodeprofil().getUrl()).into(holder.photoprofil);
-                }
-                if (u instanceof Utilisateur == true) {
-                    Utilisateur ut = (Utilisateur) u;
-                    holder.nomprenom.setText(ut.getNom() + " " + ut.getPrenom());
-                    holder.ratingBar.setVisibility(View.VISIBLE);
-                    if(ut.getConfiance()<0)
-                        holder.ratingBar.setRating(0);
-                    else{
-                        if (ut.getConfiance()>100)
-                            holder.ratingBar.setRating(5);
-                        else
-                            holder.ratingBar.setRating(ut.getConfiance()/20);
-                    }
-
-                }
-                if (u instanceof Association==true){
-                    Association a=(Association) u;
-                    holder.nomprenom.setText(a.getNomassociation());
-
-                }
-
-
-                holder.afficherdétail.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(thisview.getContext().getApplicationContext(), SignalPnDetailsActivity.class);
-                        intent.putExtra("idpublication", publication.getIdpub());
-                        intent.putExtra("myidutilisateur", me.getIdprofile());
-                        if(me instanceof ChefAssociation){
-                            intent.putExtra("chef", 1);
-                            intent.putExtra("myidassociation",((ChefAssociation)me).getAssociation().getIdprofile());
-                        }else
-                            intent.putExtra("chef", 0);
-
-                        thisview.getContext().startActivity(intent);
-
-                    }
-                });
-
-                break;
+            Profile u=signalPn.getProfile();
+            if (u.getPhotodeprofil() != null) {
+                Glide.with(thisview.getContext()).load(Help.getMedia()+signalPn.getProfile().getPhotodeprofil().getUrl()).into(holder.photoprofil);
             }
-            case 1:{
-                final ProjetHolder holder=(ProjetHolder) viewholder;
-
-                Projet projet=(Projet) publication;
-
-
-
-                holder.datedebut.setText(Help.getLaDate().format(projet.getDatedebutcollecte()));
-                holder.datefin.setText(Help.getLaDate().format(projet.getDatefincollecte()));
-                holder.hopen.setText(Help.getLHeure().format(projet.getHeureopen()));
-                holder. hclose.setText(Help.getLHeure().format(projet.getHeureclose()));
-
-                try {
-                    if(projet.getDestination()!=null){
-                        addresses = geocoder.getFromLocation(projet.getDestination().latitude, projet.getDestination().longitude, 1);
-                        ((ProjetHolder) viewholder).destii.setText(addresses.get(0).getAddressLine(0));
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    ((ProjetHolder) viewholder).destii.setText("Erreuuure");
+            if (u instanceof Utilisateur == true) {
+                Utilisateur ut = (Utilisateur) u;
+                holder.nomprenom.setText(ut.getNom() + " " + ut.getPrenom());
+                holder.ratingBar.setVisibility(View.VISIBLE);
+                if(ut.getConfiance()<0)
+                    holder.ratingBar.setRating(0);
+                else{
+                    if (ut.getConfiance()>100)
+                        holder.ratingBar.setRating(5);
+                    else
+                        holder.ratingBar.setRating(ut.getConfiance()/20);
                 }
 
-
-                Association a=projet.getAssociation();
-                if (a.getPhotodeprofil() != null) {
-                    Glide.with(thisview.getContext()).load(Help.getMedia()+a.getPhotodeprofil().getUrl()).into(holder.photoprofil);
-                }
+            }
+            if (u instanceof Association==true){
+                Association a=(Association) u;
                 holder.nomprenom.setText(a.getNomassociation());
 
-                holder.afficherdétail.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(thisview.getContext().getApplicationContext(), ProjetDetailsActivity.class);
-                        intent.putExtra("idpublication", publication.getIdpub());
-                        intent.putExtra("myidutilisateur", me.getIdprofile());
-                        if(me instanceof ChefAssociation){
-                            intent.putExtra("chef", 1);
-                            intent.putExtra("myidassociation",((ChefAssociation)me).getAssociation().getIdprofile());
-                        }else
-                            intent.putExtra("chef", 0);
-
-                        thisview.getContext().startActivity(intent);
-
-                    }
-                });
-
-                break;
             }
+
+
+            holder.afficherdétail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(thisview.getContext().getApplicationContext(), SignalPnDetailsActivity.class);
+                    intent.putExtra("idpublication", publication.getIdpub());
+                    intent.putExtra("myidutilisateur", me.getIdprofile());
+                    if(me instanceof ChefAssociation){
+                        intent.putExtra("chef", 1);
+                        intent.putExtra("myidassociation",((ChefAssociation)me).getAssociation().getIdprofile());
+                    }else
+                        intent.putExtra("chef", 0);
+
+                    thisview.getContext().startActivity(intent);
+
+                }
+            });
+
         }
+        if (viewholder.getItemViewType()==1 || viewholder.getItemViewType()==3){
+            final ProjetHolder holder=(ProjetHolder) viewholder;
+
+            Projet projet=(Projet) publication;
+
+
+
+            holder.datedebut.setText(Help.getLaDate().format(projet.getDatedebutcollecte()));
+            holder.datefin.setText(Help.getLaDate().format(projet.getDatefincollecte()));
+            holder.hopen.setText(Help.getLHeure().format(projet.getHeureopen()));
+            holder. hclose.setText(Help.getLHeure().format(projet.getHeureclose()));
+
+            try {
+                if(projet.getDestination()!=null){
+                    addresses = geocoder.getFromLocation(projet.getDestination().latitude, projet.getDestination().longitude, 1);
+                    ((ProjetHolder) viewholder).destii.setText(addresses.get(0).getAddressLine(0));
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                ((ProjetHolder) viewholder).destii.setText("Erreuuure");
+            }
+
+
+            Association a=projet.getAssociation();
+            if (a.getPhotodeprofil() != null) {
+                Glide.with(thisview.getContext()).load(Help.getMedia()+a.getPhotodeprofil().getUrl()).into(holder.photoprofil);
+            }
+            holder.nomprenom.setText(a.getNomassociation());
+
+            holder.afficherdétail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(thisview.getContext().getApplicationContext(), ProjetDetailsActivity.class);
+                    intent.putExtra("idpublication", publication.getIdpub());
+                    intent.putExtra("myidutilisateur", me.getIdprofile());
+                    if(me instanceof ChefAssociation){
+                        intent.putExtra("chef", 1);
+                        intent.putExtra("myidassociation",((ChefAssociation)me).getAssociation().getIdprofile());
+                    }else
+                        intent.putExtra("chef", 0);
+
+                    thisview.getContext().startActivity(intent);
+
+                }
+            });
+        }
+
         View.OnClickListener on=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -497,12 +504,19 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
 
 
     public int getItemViewType(int position) {
-        if(listPub.get(position) instanceof  SignalPN)
+        if(listPub.get(position) instanceof  SignalPN){
+            if (listPub.get(position).isPubfinalisee())
+                return 2;
             return 0;
+        }
 
-        if(listPub.get(position) instanceof  Projet)
+        if(listPub.get(position) instanceof  Projet){
+            if( listPub.get(position).isPubfinalisee())
+                return 3;
             return 1;
-        return 2;
+        }
+
+        return 4;
     }
 
     @Override
@@ -547,6 +561,12 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
 
         }
     }
+    public class SPNHolderF extends SPNHolder{
+
+        public SPNHolderF(View itemView) {
+            super(itemView);
+        }
+    }
     public class ProjetHolder extends PublicationHolder {
 
         TextView datedebut,datefin,hopen,hclose,destii;
@@ -564,6 +584,12 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
         }
     }
 
+    public class ProjetHolderF extends  ProjetHolder{
+
+        public ProjetHolderF(View itemView) {
+            super(itemView);
+        }
+    }
 
 
 

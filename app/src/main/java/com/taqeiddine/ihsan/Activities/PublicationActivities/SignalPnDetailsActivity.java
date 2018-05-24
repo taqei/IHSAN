@@ -186,7 +186,8 @@ public class SignalPnDetailsActivity extends AppCompatActivity  {
                         type.setText(signalPN.getTypePN());
                         numphone.setText(signalPN.getNumphone());
 
-
+                        if(publication.isPubfinalisee())
+                            intervenir.setVisibility(View.INVISIBLE);
                         Geocoder geocoder;
                         List<Address> addresses;
                         geocoder = new Geocoder(SignalPnDetailsActivity.this, Locale.getDefault());
@@ -291,6 +292,7 @@ public class SignalPnDetailsActivity extends AppCompatActivity  {
                                         }, new Response.ErrorListener() {
                                             @Override
                                             public void onErrorResponse(VolleyError volleyError) {
+                                                Log.i("ISIL", volleyError.toString());
                                             }
                                         });
                                         requestQueue.add(insertIntervention);

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.taqeiddine.ihsan.Activities.Messages.MessagesActivity;
 import com.taqeiddine.ihsan.Activities.ProfileActivities.AssociationActivity;
 import com.taqeiddine.ihsan.Activities.ProfileActivities.AssociationAdminActivity;
 import com.taqeiddine.ihsan.Activities.PublicationActivities.InterventionsActivity;
@@ -37,7 +38,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.e(TAG, "Notification JSON " + json.toString());
         DatabaseHelper databaseHelper=new DatabaseHelper(getBaseContext());
         long i=databaseHelper.insertNotification(json.toString());
-        Log.i("khourii is speed","+"+i);
         try {
             //getting the json data
             JSONObject data = json.getJSONObject("data");
@@ -165,6 +165,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         intent.putExtra("myidchef",SharedPrefManager.getInstance(this).getID());
                         intent.putExtra("myidassociation",idasso);
 
+                        mNotificationManager.showNotification(titree, message, intent);
+                        break;
+                    }
+                    case 7:{
+                        String titree=jsonObject.getString("titre");
+                        Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
+                        intent.putExtra("myidprofil",SharedPrefManager.getInstance(this).getID());
                         mNotificationManager.showNotification(titree, message, intent);
                         break;
                     }
