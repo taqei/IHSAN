@@ -36,6 +36,12 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.mep = mep;
     }
 
+    public Message getMax()
+    {
+        if (messages.size()>0)
+            return this.messages.get(0);
+        return null;
+    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 

@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.BitSet;
+import java.util.Objects;
 
 /**
  * Created by Taqei on 09/03/2018.
@@ -107,4 +108,12 @@ public class Profile {
     public void setNbpublications(int nbpublications) {
         this.nbpublications = nbpublications;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Profile profile = (Profile) o;
+        return Objects.equals(idprofile, profile.idprofile);
+    }
+
+
 }

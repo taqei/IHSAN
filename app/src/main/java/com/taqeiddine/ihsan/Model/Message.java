@@ -19,9 +19,18 @@ public class Message {
     private Profile exp,recep;
     private String message,idMessage;
     private Date date;
+    private boolean vu;
 
 
     public Message() {
+    }
+
+    public boolean isVu() {
+        return vu;
+    }
+
+    public void setVu(boolean vu) {
+        this.vu = vu;
     }
 
     public Message(Profile exp, Profile recep, String message, String idMessage, Date date) {
@@ -78,8 +87,21 @@ public class Message {
                 //"datetimemessage": "2018-04-02 17:34:08"
         try{
             message.setIdMessage(j.getString("idmessage"));
-            message.setExp(new Profile(j.getString("idexp")));
-            message.setRecep(new Profile(j.getString("idrecep")));
+
+            if (j.getInt("type")==0){
+                message.setExp(Profile.fromJsonINFOPROFILELITE(j.getJSONObject("idexp")));
+                message.setRecep(Profile.fromJsonINFOPROFILELITE(j.getJSONObject("idrecep")));
+                int i=j.getInt("vu");
+                if (i==0)
+                    message.setVu(false);
+                else
+                    message.setVu(true);
+            }else{
+                message.setExp(new Profile(j.getString("idexp")));
+                message.setRecep(new Profile(j.getString("idrecep")));
+            }
+
+
             message.setMessage(j.getString("message"));
             Date date;
             try{

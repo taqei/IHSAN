@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="55dp"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_vertical"
     android:id="@+id/messages_relativelayout"
@@ -22,16 +22,28 @@
             android:src="@drawable/ic_logo"
             app:civ_border_color="#50FFFFFF"
             app:civ_border_width="2dp" />
-
-        <TextView
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Taqei Iddine Toufik"
                 android:textColor="@color/pink700"
                 android:textSize="17sp"
-                android:textStyle="bold"
                 android:id="@+id/messages_nomprenom"
-                android:layout_marginLeft="10dp"/>
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:id="@+id/messages_themessage"
+                tools:text="hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
