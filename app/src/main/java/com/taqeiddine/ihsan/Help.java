@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -51,5 +54,11 @@ public class Help {
     }
     public static SimpleDateFormat getDATEHMS1(){
         return new SimpleDateFormat("HH:mm:ss");
+    }
+
+    public static LatLngBounds getAd(){
+        LatLngBounds latLngBounds = new LatLngBounds(new LatLng(36.740776,3.0378333),new LatLng(36.792521,3.0570713)
+                );
+        return  latLngBounds;
     }
 }

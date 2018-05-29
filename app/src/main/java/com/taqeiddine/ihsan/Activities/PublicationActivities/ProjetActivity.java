@@ -583,8 +583,7 @@ public class ProjetActivity extends AppCompatActivity {
         destination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LatLngBounds latLngBounds = new LatLngBounds(new LatLng(47.64299816, -122.14351988),
-                        new LatLng(47.64299816, -122.14351988));
+                LatLngBounds latLngBounds = Help.getAd();
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 builder.setLatLngBounds(latLngBounds);
 
@@ -601,8 +600,7 @@ public class ProjetActivity extends AppCompatActivity {
         lieucollecte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LatLngBounds latLngBounds = new LatLngBounds(new LatLng(47.64299816, -122.14351988),
-                        new LatLng(47.64299816, -122.14351988));
+                LatLngBounds latLngBounds = Help.getAd();
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 builder.setLatLngBounds(latLngBounds);
 

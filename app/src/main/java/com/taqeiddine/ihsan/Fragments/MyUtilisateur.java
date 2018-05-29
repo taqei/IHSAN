@@ -1,6 +1,7 @@
 package com.taqeiddine.ihsan.Fragments;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -62,6 +63,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.Context.ACTIVITY_SERVICE;
 
 
 public class MyUtilisateur extends Fragment {
@@ -212,7 +215,7 @@ public class MyUtilisateur extends Fragment {
         });
 
         GETTHEPUBLICATIONS();
-
+        initDeconnexion();
 
     }
 
@@ -372,6 +375,18 @@ public class MyUtilisateur extends Fragment {
         requestQueue.add(asso);
 
 
+    }
+
+    public void initDeconnexion(){
+        Button dec=(Button) getView().findViewById(R.id.deconnexion);
+        View.OnClickListener onClickListener=new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ActivityManager)getContext().getSystemService(ACTIVITY_SERVICE)).clearApplicationUserData();
+                getActivity().finish();
+            }
+        };
+        dec.setOnClickListener(onClickListener);
     }
 
 }

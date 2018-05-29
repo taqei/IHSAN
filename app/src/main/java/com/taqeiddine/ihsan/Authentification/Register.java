@@ -71,10 +71,10 @@ public class Register extends AppCompatActivity {
                     try {
                         if (new JSONObject(response).getBoolean("success")) {
                             Toast.makeText(Register.this, "Account Successfully Created", Toast.LENGTH_SHORT).show();
-
+                            Register.this.finish();
                             //Intent inte=new Intent(Register.this,Main2Activity.class);
                            // startActivity(inte);
-                           // finish();
+
                         } else{
                             if (new JSONObject(response).getString("status").equals("email")){
                                 Toast.makeText(Register.this, "UserName éxiste déja !", Toast.LENGTH_SHORT).show();

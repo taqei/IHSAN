@@ -172,7 +172,18 @@
 
                 </LinearLayout>
 
-
+                 <Button
+                     android:layout_width="wrap_content"
+                     android:layout_height="35dp"
+                     android:text="Deconnexion"
+                     android:padding="2dp"
+                     android:background="@drawable/registerbtne"
+                     android:textSize="10sp"
+                     android:textAllCaps="false"
+                     android:gravity="center"
+                     android:layout_gravity="center"
+                     android:layout_margin="5dp"
+                     android:id="@+id/deconnexion"/>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
