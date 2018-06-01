@@ -382,8 +382,7 @@ public class MyUtilisateur extends Fragment {
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ActivityManager)getContext().getSystemService(ACTIVITY_SERVICE)).clearApplicationUserData();
-                getActivity().finish();
+                Help.deleteData(getContext());
             }
         };
         dec.setOnClickListener(onClickListener);

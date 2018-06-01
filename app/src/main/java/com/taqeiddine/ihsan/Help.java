@@ -1,11 +1,14 @@
 package com.taqeiddine.ihsan;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.taqeiddine.ihsan.DataBaseSQLite.DatabaseHelper;
+import com.taqeiddine.ihsan.Firebase.SharedPrefManager;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -60,5 +63,12 @@ public class Help {
         LatLngBounds latLngBounds = new LatLngBounds(new LatLng(36.740776,3.0378333),new LatLng(36.792521,3.0570713)
                 );
         return  latLngBounds;
+    }
+
+    public static void deleteData(Context context){
+        SharedPrefManager sharedPrefManager=SharedPrefManager.getInstance(context);
+        sharedPrefManager.delete();
+        DatabaseHelper databaseHelper=new DatabaseHelper(context);
+        databaseHelper.deleteRows();
     }
 }

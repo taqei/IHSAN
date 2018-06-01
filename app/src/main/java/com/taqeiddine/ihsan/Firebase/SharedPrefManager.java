@@ -84,4 +84,11 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getString(TAG_TOKEN, null);
     }
+
+    public void delete(){
+        SharedPreferences settings = mCtx.getSharedPreferences("FCMSharedPref", Context.MODE_PRIVATE);
+        settings.edit().clear().commit();
+        settings = mCtx.getSharedPreferences("USERSharedPref", Context.MODE_PRIVATE);
+        settings.edit().clear().commit();
+    }
 }

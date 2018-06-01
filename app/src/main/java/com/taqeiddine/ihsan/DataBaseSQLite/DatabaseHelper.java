@@ -99,6 +99,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return notifications;
     }
 
+    public void deleteRows(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from notification");
+        db.close();
+    }
+
 
 
 

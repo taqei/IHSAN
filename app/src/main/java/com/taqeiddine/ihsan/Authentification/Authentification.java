@@ -48,12 +48,16 @@ public class Authentification extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(s);
                         if (jsonObject.getBoolean("success")) {
-
+                            if(jsonObject.getInt("banni")==1){
+                                Intent banni=new Intent(Authentification.this,bannir.class);
+                                banni.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
+                                startActivity(banni);
+                            }else{
                             Intent loginSuccess = new Intent(Authentification.this, HomeActivity.class);
                             loginSuccess.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
                             //Passing all received data from server to next activity
                             startActivity(loginSuccess);
-                            finish();
+                            finish();}
                         }}catch (JSONException e){
 
                         }
@@ -94,17 +98,24 @@ public class Authentification extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         if (jsonObject.getBoolean("success")) {
-                            Utilisateur utilisateur=new Utilisateur();
-                            utilisateur.setEmail(email.getText().toString());
-                            utilisateur.setPass(mdp.getText().toString());
-                            utilisateur.setIdprofile(jsonObject.getString("idprofil"));
-                            SharedPrefManager.getInstance(Authentification.this).saveUserInfo(utilisateur);
+                            if(jsonObject.getInt("banni")==1){
+                                Intent banni=new Intent(Authentification.this,bannir.class);
+                                banni.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
+                                startActivity(banni);
+                            }else{
+                                Utilisateur utilisateur=new Utilisateur();
+                                utilisateur.setEmail(email.getText().toString());
+                                utilisateur.setPass(mdp.getText().toString());
+                                utilisateur.setIdprofile(jsonObject.getString("idprofil"));
+                                SharedPrefManager.getInstance(Authentification.this).saveUserInfo(utilisateur);
 
-                            Intent loginSuccess = new Intent(Authentification.this, HomeActivity.class);
-                            loginSuccess.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
-                            //Passing all received data from server to next activity
-                            startActivity(loginSuccess);
-                            finish();
+                                Intent loginSuccess = new Intent(Authentification.this, HomeActivity.class);
+                                loginSuccess.putExtra("myidutilisateur",jsonObject.getString("idprofil"));
+                                //Passing all received data from server to next activity
+                                startActivity(loginSuccess);
+                                finish();
+                            }
+
                         } else {
                             if(jsonObject.getString("problem").equals("USER")){
                                 Toast.makeText(Authentification.this, "User Not Found", Toast.LENGTH_SHORT).show();

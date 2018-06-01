@@ -29,6 +29,16 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="7dp"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aucune Publication"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    android:id="@+id/nothing"
+                    android:visibility="gone"/>
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
