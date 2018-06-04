@@ -288,7 +288,7 @@ public class MyUtilisateur extends Fragment {
                         progress.dismiss();
                         try {
                             if (new JSONObject(s).getBoolean("success")) {
-                                Toast.makeText(getActivity(), "Account Successfully Created", Toast.LENGTH_SHORT).show();
+                              //  Toast.makeText(getActivity(), "Account Successfully Created", Toast.LENGTH_SHORT).show();
 
                                 // this.finish();
                             } else

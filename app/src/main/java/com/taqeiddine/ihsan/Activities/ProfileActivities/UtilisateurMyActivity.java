@@ -276,7 +276,7 @@ public class UtilisateurMyActivity extends AppCompatActivity {
                         progress.dismiss();
                         try {
                             if (new JSONObject(s).getBoolean("success")) {
-                                Toast.makeText(UtilisateurMyActivity.this, "Account Successfully Created", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(UtilisateurMyActivity.this, "Account Successfully Created", Toast.LENGTH_SHORT).show();
 
                                 // this.finish();
                             } else

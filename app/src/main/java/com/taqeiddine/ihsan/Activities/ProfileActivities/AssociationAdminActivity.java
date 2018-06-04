@@ -302,7 +302,7 @@ public class AssociationAdminActivity extends AppCompatActivity {
                         progress.dismiss();
                         try {
                             if (new JSONObject(s).getBoolean("success")) {
-                                Toast.makeText(AssociationAdminActivity.this, "Account Successfully Created", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(AssociationAdminActivity.this, "Account Successfully Created", Toast.LENGTH_SHORT).show();
 
                                 // this.finish();
                             } else
