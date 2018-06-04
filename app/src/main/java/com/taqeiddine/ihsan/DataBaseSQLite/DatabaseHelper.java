@@ -69,11 +69,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Notification> notifications=new ArrayList<>();
         String selectQuery;
         if(lastid<0)
-            selectQuery = "select t.* from ( SELECT  * FROM notification n ORDER BY " +
-                "n.idnotification" + " DESC)t ";
+            selectQuery = "SELECT  * FROM notification n ORDER BY " +
+                "n.idnotification" + " DESC ";
         else
-            selectQuery = "select t.* from ( SELECT  * FROM notification n where n.idnotification < "+lastid + " ORDER BY " +
-                "idnotification" + " DESC)t ";
+            selectQuery = "SELECT  * FROM notification n where n.idnotification < "+lastid + " ORDER BY " +
+                "idnotification" + " DESC ";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

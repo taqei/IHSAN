@@ -328,7 +328,7 @@ public class ProjetDetailsActivity extends AppCompatActivity {
                     }
 
                     final StableArrayAdapter adapter = new StableArrayAdapter(ProjetDetailsActivity.this,
-                            android.R.layout.simple_list_item_1, list);
+                            R.layout.stablearray, list);
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -400,7 +400,7 @@ public class ProjetDetailsActivity extends AppCompatActivity {
                                     list.add(val[i]);
                                 }
                                 final StableArrayAdapter adapter = new StableArrayAdapter(ProjetDetailsActivity.this,
-                                        android.R.layout.simple_list_item_1, list);
+                                        R.layout.stablearray, list);
                                 listView.setAdapter(adapter);
                                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

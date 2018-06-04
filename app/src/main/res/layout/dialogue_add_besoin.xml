@@ -13,7 +13,8 @@
             android:hint="Nom Article"
             android:editable="false"
             android:id="@+id/dialogue_nomarticle"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:textColor="#000"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +41,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="QTE"
-            android:id="@+id/dialogue_qte"/>
+            android:id="@+id/dialogue_qte"
+            android:textColor="#000"
+            />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -328,7 +328,7 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
                     }
 
                     final StableArrayAdapter adapter = new StableArrayAdapter(thisview.getContext(),
-                            android.R.layout.simple_list_item_1, list);
+                            R.layout.stablearray, list);
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -416,7 +416,7 @@ public class PublicationSmallAdapter extends RecyclerView.Adapter<PublicationSma
                                     list.add(val[i]);
                                 }
                                 final StableArrayAdapter adapter = new StableArrayAdapter(thisview.getContext(),
-                                        android.R.layout.simple_list_item_1, list);
+                                        R.layout.stablearray, list);
                                 listView.setAdapter(adapter);
                                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
