@@ -383,6 +383,7 @@ public class MyUtilisateur extends Fragment {
             @Override
             public void onClick(View v) {
                 Help.deleteData(getContext());
+                System.exit(0);
             }
         };
         dec.setOnClickListener(onClickListener);
