@@ -408,8 +408,8 @@ public class AssociationAdminActivity extends AppCompatActivity {
 
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
-            public void onClick(ViSHOWDEMANDESew v) {
-                ();
+            public void onClick(View v) {
+                SHOWDEMANDES();
             }
         };
 

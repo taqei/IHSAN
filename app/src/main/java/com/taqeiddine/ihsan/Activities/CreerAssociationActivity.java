@@ -114,7 +114,7 @@ public class CreerAssociationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adress.setClickable(false);
-                LatLngBounds latLngBounds = new LatLngBounds(Help.getAd());
+                LatLngBounds latLngBounds =Help.getAd();
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 builder.setLatLngBounds(latLngBounds);
 
