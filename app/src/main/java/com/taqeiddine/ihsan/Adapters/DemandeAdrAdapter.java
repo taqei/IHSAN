@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -42,7 +43,7 @@ public class DemandeAdrAdapter extends ArrayAdapter<DemandeAdr> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable final View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView=layoutInflater.inflate(R.layout.row_demande_adr,parent,false);
         de.hdodenhof.circleimageview.CircleImageView circleImageView=(de.hdodenhof.circleimageview.CircleImageView) rowView.findViewById(R.id.row_demande_adr_photo);
@@ -72,6 +73,9 @@ public class DemandeAdrAdapter extends ArrayAdapter<DemandeAdr> {
                         Log.i("ovitale",s);
                         accepter.setClickable(false);
                         refuser.setClickable(false);
+                        Toast.makeText(context,"Votre requette a été bien effectué",Toast.LENGTH_SHORT).show();
+                        objects.remove(position);
+                        notifyDataSetChanged();
                     }
                 });
                 requestQueue.add(accepterAdr);

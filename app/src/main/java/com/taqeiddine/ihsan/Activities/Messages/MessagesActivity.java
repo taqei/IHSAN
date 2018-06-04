@@ -29,8 +29,8 @@ public class MessagesActivity extends AppCompatActivity {
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitle("Boite de récéption");
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         MessageSAdapter adapter=new MessageSAdapter(me,requestQueue,this);
         messages=(RecyclerView) findViewById(R.id.activiti_mesgs_recy);

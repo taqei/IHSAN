@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:hint="Pourquoi vous vouez signaler cette publication ?"
         android:id="@+id/dialogue_signaler_text"
+        android:textColor="#000"
         android:maxLength="500"/>
     <Button
         android:layout_width="wrap_content"

@@ -18,6 +18,7 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.taqeiddine.ihsan.Activities.ProfileActivities.AssociationAdminActivity;
+import com.taqeiddine.ihsan.Help;
 import com.taqeiddine.ihsan.Model.Profile.Association;
 import com.taqeiddine.ihsan.Model.Profile.ChefAssociation;
 import com.taqeiddine.ihsan.R;
@@ -113,8 +114,7 @@ public class CreerAssociationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adress.setClickable(false);
-                LatLngBounds latLngBounds = new LatLngBounds(new LatLng(47.64299816, -122.14351988),
-                        new LatLng(47.64299816, -122.14351988));
+                LatLngBounds latLngBounds = new LatLngBounds(Help.getAd());
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 builder.setLatLngBounds(latLngBounds);
 
