@@ -88,8 +88,8 @@ public class AssociationAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_association_admin);
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         photodeprofil=(CircleImageView) findViewById(R.id.my_association_image);
         changephotoprofil=(ImageView) findViewById(R.id.my_association_changeImage);

@@ -2,6 +2,7 @@ package com.taqeiddine.ihsan.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -59,6 +60,10 @@ public class MySearch extends Fragment {
         me.setIdprofile(SharedPrefManager.getInstance(getContext()).getID());
 
         searchView=(SearchView) getView().findViewById(R.id.mysearch_searchview);
+        int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        TextView textView = (TextView) searchView.findViewById(id);
+        textView.setTextColor(Color.BLACK);
+
         listView=(ListView) getView().findViewById(R.id.mysearch_listview);
         textView=(TextView) getView().findViewById(R.id.mysearch_text);
         requestQueue= Volley.newRequestQueue(getContext());

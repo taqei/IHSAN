@@ -101,8 +101,8 @@ public class SignalPnDetailsActivity extends AppCompatActivity  {
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         //mapView = (MapView) findViewById(R.id.detailspn_localisation);

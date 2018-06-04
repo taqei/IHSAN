@@ -68,7 +68,13 @@ public class MyNotifications extends Fragment {
 
     public void getNotfications(int id){
         ArrayList<Notification> notificationArrayList=databaseHelper.notificationsTen(getActivity(),id);
-        notifications.addAll(notificationArrayList);
+        ArrayList<Notification> notifications=new ArrayList<>();
+        for(int i=0;i<notificationArrayList.size();i++){
+            Notification notification=notificationArrayList.get(i);
+            if(notification.getCode()!=7)
+                notifications.add(notification);
+        }
+        notifications.addAll(notifications);
         adapter.notifyDataSetChanged();
     }
 }

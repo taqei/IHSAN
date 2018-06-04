@@ -81,8 +81,8 @@ public class AssociationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_association);
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         photodeprofil=(CircleImageView) findViewById(R.id.association_image);
         name=(TextView) findViewById(R.id.association_Name);

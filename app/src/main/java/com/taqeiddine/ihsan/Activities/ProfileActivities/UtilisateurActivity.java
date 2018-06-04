@@ -71,8 +71,8 @@ public class UtilisateurActivity extends AppCompatActivity {
         setContentView(R.layout.activity_utilisateur_other);
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         nameandlastname =(TextView) findViewById(R.id.profileotherName);
 

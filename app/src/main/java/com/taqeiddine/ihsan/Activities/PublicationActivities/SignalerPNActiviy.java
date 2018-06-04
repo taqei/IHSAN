@@ -106,10 +106,11 @@ public class SignalerPNActiviy extends AppCompatActivity {
         setContentView(R.layout.activity_signaler_pn);
 
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+
         myToolbar.setTitle("Signaler une personne nécéssiteuse.");
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         requestQueue= Volley.newRequestQueue(this);
 

@@ -42,8 +42,8 @@ public class InterventionsActivity extends AppCompatActivity {
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitle("Liste des interventions");
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
         listView=(ExpandableListView) findViewById(R.id.interventions_listview);
         requestQueue= Volley.newRequestQueue(this);
         publication=new Publication(getIntent().getStringExtra("idpublication"));

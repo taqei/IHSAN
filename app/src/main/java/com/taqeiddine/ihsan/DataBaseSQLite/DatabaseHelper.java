@@ -70,10 +70,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selectQuery;
         if(lastid<0)
             selectQuery = "select t.* from ( SELECT  * FROM notification n ORDER BY " +
-                "n.idnotification" + " DESC)t LIMIT 10";
+                "n.idnotification" + " DESC)t ";
         else
             selectQuery = "select t.* from ( SELECT  * FROM notification n where n.idnotification < "+lastid + " ORDER BY " +
-                "idnotification" + " DESC)t LIMIT 10";
+                "idnotification" + " DESC)t ";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
